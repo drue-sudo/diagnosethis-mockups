@@ -1,0 +1,409 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Public Pages Handoff</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#111;}
+#sidenav{position:fixed;top:0;left:0;width:200px;height:100vh;background:#0a0a0a;border-right:1px solid #222;overflow-y:auto;z-index:100;padding:16px 0;}
+#sidenav h3{color:#ffb533;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:0 16px 12px;border-bottom:1px solid #222;margin-bottom:8px;}
+.ni{display:block;padding:8px 16px;color:#888;font-size:12px;cursor:pointer;border-left:2px solid transparent;}
+.ni:hover,.ni.active{color:#fff;background:#1a1a1a;border-left-color:#ffb533;}
+.ni span{display:block;font-size:10px;color:#555;margin-top:1px;}
+#main{margin-left:200px;}
+.pw{display:none;} .pw.active{display:block;}
+.ptb{background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:10px 16px;margin:20px 24px 14px;display:flex;align-items:center;justify-content:space-between;}
+.ptb h2{color:#fff;font-size:13px;font-weight:600;}
+.ptb span{color:#555;font-size:11px;}
+.mock{background:#f7f8fa;border-radius:8px;margin:0 24px 32px;overflow:hidden;}
+/* shared */
+.hdr{background:#025870;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;}
+.lc{display:flex;align-items:center;gap:8px;}
+.lb{width:30px;height:30px;border-radius:50%;background:#ffb533;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ln{color:#fff;font-size:16px;font-weight:600;letter-spacing:-0.3px;}
+.nav{display:flex;align-items:center;gap:18px;}
+.nt{color:rgba(255,255,255,0.5);font-size:12px;cursor:pointer;}
+.nt.a{background:rgba(255,255,255,0.15);color:#fff;font-weight:600;padding:5px 12px;border-radius:20px;}
+.uc{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border-radius:20px;padding:5px 10px;}
+.ua{width:20px;height:20px;border-radius:50%;background:#ffb533;display:flex;align-items:center;justify-content:center;}
+.hero{background:#025870;padding:44px 32px;text-align:center;border-bottom:0.5px solid rgba(255,255,255,0.1);}
+.badge{background:rgba(255,181,51,0.15);color:#ffb533;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:0.8px;text-transform:uppercase;display:inline-block;margin-bottom:12px;}
+.badge-warn{background:rgba(241,91,92,0.15);color:#f15b5c;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:0.8px;text-transform:uppercase;display:inline-block;margin-bottom:12px;}
+.sec{max-width:880px;margin:0 auto;padding:32px;}
+.card{background:#fff;border:0.5px solid rgba(2,88,112,0.12);border-radius:10px;padding:18px 22px;}
+.ci{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.ci p{color:#555;font-size:12px;margin:0;line-height:1.6;}
+.cb{background:#f15b5c;border:none;border-radius:8px;padding:11px 20px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;}
+.gb{background:#ffb533;border:none;border-radius:8px;padding:11px 20px;color:#025870;font-size:13px;font-weight:600;cursor:pointer;}
+.nb{background:#025870;border:none;border-radius:8px;padding:11px 20px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;}
+.cs-btn{width:100%;background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;text-align:center;}
+.inp-d{background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.2);border-radius:8px;padding:10px 13px;color:#fff;font-size:13px;outline:none;}
+.inp-l{background:#f7f8fa;border:0.5px solid rgba(2,88,112,0.2);border-radius:8px;padding:10px 13px;color:#333;font-size:13px;outline:none;}
+.lbl-l{display:block;color:#025870;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;}
+.warn{background:rgba(241,91,92,0.06);border:0.5px solid rgba(241,91,92,0.2);border-left:3px solid #f15b5c;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:18px;}
+.ft{background:#025870;padding:28px 36px 18px;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:24px;margin-bottom:16px;max-width:900px;margin-left:auto;margin-right:auto;}
+.ftc{color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 10px;}
+.ftl{color:rgba(255,255,255,0.55);font-size:12px;display:block;margin-bottom:5px;}
+.fb{border-top:0.5px solid rgba(255,255,255,0.1);padding-top:12px;display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto;}
+.bn{display:flex;justify-content:center;gap:10px;padding:12px 28px;border-top:0.5px solid rgba(255,255,255,0.08);background:#025870;}
+.bb{text-align:center;cursor:pointer;border:1px solid #ffb533;border-radius:7px;padding:7px 16px;min-width:56px;}
+.bt{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;}
+.bw{color:#ffb533;font-size:12px;font-weight:600;}
+</style>
+</head><body>
+
+<div id="sidenav">
+  <h3>Public Pages</h3>
+  <div class="ni active" onclick="show('about')">01 — About Us<span>diagnosethis.com/about</span></div>
+  <div class="ni" onclick="show('contact')">02 — Contact Us<span>diagnosethis.com/contact</span></div>
+  <div class="ni" onclick="show('privacy')">03 — Privacy Policy<span>diagnosethis.com/privacy</span></div>
+  <div class="ni" onclick="show('chat')">04 — Chat WHY<span>diagnosethis.com/chat</span></div>
+  <div class="ni" onclick="show('find')">05 — Find WHY<span>diagnosethis.com/find</span></div>
+  <div class="ni" onclick="show('live')">06 — Live WHY<span>diagnosethis.com/live</span></div>
+  <div class="ni" onclick="show('shop')">07 — Shop WHY<span>diagnosethis.com/shop</span></div>
+  <div class="ni" onclick="show('lab')">08 — Lab WHY ⚑<span>diagnosethis.com/lab</span></div>
+  <div class="ni" onclick="show('pro')">09 — Pro WHY ⚑<span>diagnosethis.com/pro</span></div>
+</div>
+
+<div id="main">
+
+<!-- ABOUT -->
+<div class="pw active" id="p-about">
+<div class="ptb"><h2>01 — About Us</h2><span>Public-facing · Brand story · Dr. Z leadership · Plan overview</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Home</span><span class="nt a">About</span><span class="nt">Contact</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero">
+    <div class="badge">About DiagnoseThis</div>
+    <h1 style="color:#fff;font-size:30px;font-weight:600;margin:0 0 12px;line-height:1.2;letter-spacing:-0.5px;">This Exists Because<br/>Something Was Missing</h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:15px;margin:0 auto;max-width:500px;line-height:1.7;">Not more information. Not more opinions. Not more noise.<br/><strong style="color:rgba(255,255,255,0.85);">Clarity.</strong></p>
+  </div>
+  <div class="sec">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px;">
+      <div style="background:#025870;border-radius:12px;padding:22px;">
+        <p style="color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 8px;">The gap no one talks about</p>
+        <p style="color:#fff;font-size:15px;font-weight:600;margin:0 0 10px;line-height:1.4;">Most people don't start in a doctor's office. They start with a search.</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">Something feels off. They look for answers. And then they hear: "Everything looks normal." But their life doesn't feel normal. That gap — between "nothing dangerous showed up" and "I still don't feel okay" — is where people begin to doubt themselves.</p>
+      </div>
+      <div class="card">
+        <p style="color:#025870;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 8px;">You're not broken</p>
+        <p style="color:#025870;font-size:15px;font-weight:600;margin:0 0 10px;line-height:1.4;">Most systems are built for speed. Symptoms get separated. Stories get shortened.</p>
+        <p style="color:#555;font-size:13px;line-height:1.7;margin:0 0 12px;">And anything that doesn't fit clean criteria gets labeled "fine." But "fine" isn't an explanation. And it's not a plan.</p>
+        <div style="background:rgba(2,88,112,0.05);border-radius:8px;padding:10px 14px;"><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">You don't need more guessing. You need structure.</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-bottom:24px;"><h2 style="color:#025870;font-size:20px;font-weight:600;margin:0 0 5px;">What this actually is</h2><p style="color:#888;font-size:13px;margin:0;">DiagnoseThis doesn't diagnose conditions. It does something different.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:32px;">
+      <div class="card"><div style="width:34px;height:34px;border-radius:50%;background:rgba(2,88,112,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Organize</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Organize what you're experiencing into something structured and readable.</p></div>
+      <div class="card"><div style="width:34px;height:34px;border-radius:50%;background:rgba(0,162,176,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#00a2b0" stroke-width="1.3"/><path d="M5 8l2 2 4-4" stroke="#00a2b0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Recognize</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Recognize patterns across your symptoms that a quick appointment might miss.</p></div>
+      <div class="card"><div style="width:34px;height:34px;border-radius:50%;background:rgba(255,181,51,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Ask better</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Prepare for real conversations with real providers — questions they can't ignore.</p></div>
+    </div>
+    <div style="text-align:center;margin-bottom:22px;"><h2 style="color:#025870;font-size:20px;font-weight:600;margin:0 0 5px;">Our plans</h2><p style="color:#888;font-size:13px;margin:0;">Choose the level of clarity that's right for you.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:32px;">
+      <div class="card" style="text-align:center;"><div style="width:38px;height:38px;border-radius:50%;background:rgba(2,88,112,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="#025870" stroke-width="1.3"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="color:#025870;font-size:14px;font-weight:600;margin:0 0 4px;">Ask WHY</p><span style="background:rgba(2,88,112,0.08);color:#025870;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px;">Free</span><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">3 possible explanations for your health questions. Free forever.</p></div>
+      <div class="card" style="text-align:center;border:1px solid rgba(255,181,51,0.4);position:relative;"><div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#ffb533;color:#025870;font-size:10px;font-weight:600;padding:2px 10px;border-radius:20px;white-space:nowrap;">Popular</div><div style="width:38px;height:38px;border-radius:50%;background:rgba(255,181,51,0.12);display:flex;align-items:center;justify-content:center;margin:10px auto 10px;"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#b8820a" stroke-width="1.3"/><path d="M6 9l2 2 4-4" stroke="#b8820a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="color:#025870;font-size:14px;font-weight:600;margin:0 0 4px;">See WHY</p><span style="background:rgba(255,181,51,0.12);color:#b8820a;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px;">Medium report</span><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Pattern analysis, suggested labs, and a downloadable PDF report.</p></div>
+      <div class="card" style="text-align:center;border:0.5px solid rgba(241,91,92,0.3);"><div style="width:38px;height:38px;border-radius:50%;background:rgba(241,91,92,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 2l2 5h5l-4 3 1.5 5L9 12l-4.5 3L6 10 2 7h5z" stroke="#f15b5c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="color:#025870;font-size:14px;font-weight:600;margin:0 0 4px;">The WHY</p><span style="background:rgba(241,91,92,0.08);color:#f15b5c;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px;">Full report</span><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Complete clinical reasoning, actionable steps, and a provider script.</p></div>
+    </div>
+    <div style="background:#025870;border-radius:12px;padding:26px 30px;margin-bottom:32px;">
+      <p style="color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 8px;">Leadership</p>
+      <h2 style="color:#fff;font-size:19px;font-weight:600;margin:0 0 6px;">Built by people who've seen the gap up close</h2>
+      <p style="color:rgba(255,255,255,0.55);font-size:13px;margin:0 0 18px;line-height:1.7;">Clinicians, operators, and builders who understand both sides of the experience.</p>
+      <div style="background:rgba(255,255,255,0.06);border:0.5px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:14px;max-width:380px;">
+        <div style="width:50px;height:50px;border-radius:50%;background:#ffb533;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:#025870;font-size:15px;font-weight:700;">DZ</span></div>
+        <div><p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 2px;">Dr. Z</p><p style="color:#ffb533;font-size:12px;font-weight:600;margin:0 0 4px;">Founder & CEO</p><p style="color:rgba(255,255,255,0.55);font-size:12px;margin:0;line-height:1.5;">Functional medicine physician focused on helping people understand patterns, not just chase symptoms.</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:32px;">
+      <div class="card"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Truth over reassurance</p><p style="color:#888;font-size:12px;margin:0;line-height:1.6;">We don't tell you you're fine. We help you understand why.</p></div>
+      <div class="card"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Clarity over complexity</p><p style="color:#888;font-size:12px;margin:0;line-height:1.6;">Plain language. Real patterns. No spiraling.</p></div>
+      <div class="card"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 4px;">Humanity over systems</p><p style="color:#888;font-size:12px;margin:0;line-height:1.6;">Built from lived experience and real-world gaps.</p></div>
+    </div>
+    <div style="background:#f15b5c;border-radius:12px;padding:22px 26px;text-align:center;margin-bottom:16px;"><h2 style="color:#fff;font-size:19px;font-weight:600;margin:0 0 8px;">You're not crazy. You're early.</h2><p style="color:rgba(255,255,255,0.8);font-size:13px;margin:0 0 14px;line-height:1.6;">And this is where early people start to make sense of things.</p><button style="background:#fff;border:none;border-radius:8px;padding:11px 22px;color:#f15b5c;font-size:13px;font-weight:600;cursor:pointer;">Ask your first WHY — it's free →</button></div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span><span class="ftl">Privacy policy</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;display:block;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice. Always consult a licensed provider.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- CONTACT -->
+<div class="pw" id="p-contact">
+<div class="ptb"><h2>02 — Contact Us</h2><span>Public-facing · Message form · 3 contact cards · DT Community CTA</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Home</span><span class="nt">About</span><span class="nt a">Contact</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Get in touch</div><h1 style="color:#fff;font-size:28px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">We're here to help.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:440px;line-height:1.7;">Have a question about our services, your account, or just want to say hello? Our team usually responds within 24 hours.</p></div>
+  <div class="sec">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-bottom:24px;">
+      <div class="card">
+        <h2 style="color:#025870;font-size:16px;font-weight:600;margin:0 0 4px;">Send us a message</h2>
+        <p style="color:#888;font-size:12px;margin:0 0 18px;">We usually respond within 24 hours.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;"><div><label class="lbl-l">Your name</label><input class="inp-l" style="width:100%;box-sizing:border-box;" placeholder="Your name"/></div><div><label class="lbl-l">Email address</label><input class="inp-l" style="width:100%;box-sizing:border-box;" placeholder="you@example.com"/></div></div>
+        <div style="margin-bottom:10px;"><label class="lbl-l">Subject</label><input class="inp-l" style="width:100%;box-sizing:border-box;" placeholder="How can we help?"/></div>
+        <div style="margin-bottom:16px;"><label class="lbl-l">Message</label><textarea class="inp-l" style="width:100%;box-sizing:border-box;resize:none;height:90px;font-family:inherit;line-height:1.6;" placeholder="Tell us what's on your mind..."></textarea></div>
+        <button class="cb" style="width:100%;display:flex;align-items:center;justify-content:center;gap:7px;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Send message</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left:3px solid #025870;border-radius:0 10px 10px 0;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(2,88,112,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#025870" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="#025870" stroke-width="1.2"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">Email us</p></div><p style="color:#888;font-size:12px;margin:0 0 3px;">For general inquiries and support.</p><p style="color:#00a2b0;font-size:12px;font-weight:600;margin:0;">support@diagnosethis.com</p></div>
+        <div class="card" style="border-left:3px solid #ffb533;border-radius:0 10px 10px 0;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,181,51,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 2h3l1.5 3.5L5 7a9 9 0 004 4l1.5-1.5L14 11v3a1 1 0 01-1 1C5.716 14.5.5 9.284.5 3A1 1 0 012 2z" stroke="#b8820a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">Call us</p></div><p style="color:#888;font-size:12px;margin:0 0 3px;">Mon–Fri from 8am to 5pm.</p><p style="color:#f15b5c;font-size:12px;font-weight:600;margin:0;">[Phone — flag for Dr. Z] ⚑</p></div>
+        <div class="card" style="border-left:3px solid #00a2b0;border-radius:0 10px 10px 0;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(0,162,176,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1C4.79 1 3 2.79 3 5c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4z" stroke="#00a2b0" stroke-width="1.2"/><circle cx="7" cy="5" r="1.5" stroke="#00a2b0" stroke-width="1.2"/></svg></div><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">Visit us</p></div><p style="color:#888;font-size:12px;margin:0 0 3px;">Come say hello at our office.</p><p style="color:rgba(255,181,51,0.8);font-size:12px;font-weight:600;margin:0;">[Address — flag for Dr. Z] ⚑</p></div>
+        <div style="background:#025870;border-radius:10px;padding:14px 16px;"><p style="color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin:0 0 5px;">DT Community</p><p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 4px;">Join for live support</p><p style="color:rgba(255,255,255,0.55);font-size:12px;margin:0 0 10px;line-height:1.5;">Real-time answers from practitioners and members.</p><button class="gb" style="width:100%;font-size:12px;padding:9px;">Join the DT Community →</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span><span class="ftl">Privacy policy</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;display:block;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- PRIVACY -->
+<div class="pw" id="p-privacy">
+<div class="ptb"><h2>03 — Privacy Policy</h2><span>Public-facing · Last updated Mar 30 2026 · Collect · Use · Security · Sharing</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Home</span><span class="nt">About</span><span class="nt">Contact</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Privacy Policy</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">Your privacy matters.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:440px;line-height:1.7;">We believe in transparency and security. Here's how we protect your data and respect your privacy rights.</p><p style="color:rgba(255,255,255,0.35);font-size:12px;margin:10px 0 0;">Last updated: March 30, 2026</p></div>
+  <div class="sec">
+    <div class="card" style="margin-bottom:14px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:0.5px solid rgba(2,88,112,0.08);"><div style="width:30px;height:30px;border-radius:50%;background:rgba(2,88,112,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3.5v4C2 10.1 4.2 12.8 7 13.5c2.8-.7 5-3.4 5-6V3.5L7 1z" stroke="#025870" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2 style="color:#025870;font-size:15px;font-weight:600;margin:0;">Overview</h2></div><p style="color:#555;font-size:13px;line-height:1.7;margin:0;">At DiagnoseThis, we take your privacy seriously. We are committed to protecting the personal information you share with us. This privacy policy explains how we collect, use, and safeguard your information when you use our services.</p></div>
+    <div class="card" style="margin-bottom:14px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:0.5px solid rgba(2,88,112,0.08);"><div style="width:30px;height:30px;border-radius:50%;background:rgba(255,181,51,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="8" rx="1.5" stroke="#b8820a" stroke-width="1.2"/><path d="M2 6h10" stroke="#b8820a" stroke-width="1.2"/></svg></div><h2 style="color:#025870;font-size:15px;font-weight:600;margin:0;">Information we collect</h2></div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="border-left:2px solid #025870;padding-left:12px;"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 3px;">Account information</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">When you create an account, we collect your name, email address, and encrypted password to secure your access.</p></div>
+        <div style="border-left:2px solid #00a2b0;padding-left:12px;"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 3px;">Question history</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Your WHY questions and the AI's responses are stored securely. We respect your sensitive queries and minimize data retention on our servers.</p></div>
+        <div style="border-left:2px solid #ffb533;padding-left:12px;"><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 3px;">Usage data</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">We may collect anonymous analytics to help us improve the app's performance and user experience.</p></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:14px;"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:0.5px solid rgba(2,88,112,0.08);"><div style="width:30px;height:30px;border-radius:50%;background:rgba(241,91,92,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#f15b5c" stroke-width="1.2"/><path d="M7 4v3l2 2" stroke="#f15b5c" stroke-width="1.2" stroke-linecap="round"/></svg></div><h2 style="color:#025870;font-size:15px;font-weight:600;margin:0;">How we use your information</h2></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="display:flex;align-items:center;gap:7px;background:rgba(2,88,112,0.04);border-radius:7px;padding:8px 11px;"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#333;font-size:12px;">Provide and maintain service</span></div>
+        <div style="display:flex;align-items:center;gap:7px;background:rgba(2,88,112,0.04);border-radius:7px;padding:8px 11px;"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#333;font-size:12px;">Authenticate your identity</span></div>
+        <div style="display:flex;align-items:center;gap:7px;background:rgba(2,88,112,0.04);border-radius:7px;padding:8px 11px;"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#333;font-size:12px;">Improve user experience</span></div>
+        <div style="display:flex;align-items:center;gap:7px;background:rgba(2,88,112,0.04);border-radius:7px;padding:8px 11px;"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="color:#333;font-size:12px;">Send important updates</span></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+      <div class="card" style="border-left:3px solid #025870;border-radius:0 10px 10px 0;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:7px;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="3" y="6" width="8" height="7" rx="1.2" stroke="#025870" stroke-width="1.2"/><path d="M5 6V4.5a2 2 0 014 0V6" stroke="#025870" stroke-width="1.2" stroke-linecap="round"/></svg><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">Data security</p></div><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">We use industry-standard encryption and security measures to protect your data. We continuously monitor for vulnerabilities.</p></div>
+      <div class="card" style="border-left:3px solid #00a2b0;border-radius:0 10px 10px 0;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:7px;"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#00a2b0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><p style="color:#025870;font-size:13px;font-weight:600;margin:0;">Third-party sharing</p></div><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">We do <strong>not</strong> sell, trade, or rent your personal data to third parties. Your health data is yours, and we intend to keep it that way.</p></div>
+    </div>
+    <div style="background:#025870;border-radius:10px;padding:18px 22px;text-align:center;margin-bottom:24px;"><p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 5px;">Have questions about our privacy practices?</p><p style="color:rgba(255,255,255,0.55);font-size:12px;margin:0 0 12px;">Our privacy team is here to help.</p><button class="cb">Contact our privacy team →</button></div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span><span class="ftl">Privacy policy</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- CHAT WHY -->
+<div class="pw" id="p-chat">
+<div class="ptb"><h2>04 — Chat WHY</h2><span>Patient community · Coming soon state · Access tier breakdown · DT Community link</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt a">Chat WHY</span><span class="nt">Find WHY</span><span class="nt">Live WHY</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Patient community</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">Your WHY Community</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:460px;line-height:1.7;">Connect with others who understand. Share your health journey, compare patterns, and discover you're not alone.</p></div>
+  <div class="sec">
+    <div style="background:#025870;border-radius:12px;padding:22px 26px;text-align:center;margin-bottom:18px;">
+      <div style="width:46px;height:46px;border-radius:50%;background:rgba(255,181,51,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M4 18l3-3H18a2 2 0 002-2V5a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p style="color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 6px;">Coming soon</p>
+      <h2 style="color:#fff;font-size:18px;font-weight:600;margin:0 0 8px;">Community features launching soon</h2>
+      <p style="color:rgba(255,255,255,0.55);font-size:13px;margin:0 0 14px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.6;">Meet thousands of informed patients, ask questions, share your journey, and discover you're not alone.</p>
+      <div class="cs-btn" style="max-width:380px;margin:0 auto;">Enter community — coming soon</div>
+    </div>
+    <div class="card" style="margin-bottom:14px;">
+      <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 12px;">What you'll find in the community:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Daily health discussion prompts</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Expert Q&A sessions with practitioners</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Compare symptom patterns with others</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Success stories & community wins</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Health challenges & accountability</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>The WHY members get VIP access</p></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div class="card" style="border-top:2px solid rgba(2,88,112,0.15);"><p style="color:#025870;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 5px;">Ask WHY & See WHY</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">General feed, daily prompts, ability to comment and connect.</p></div>
+      <div class="card" style="border-top:2px solid #f15b5c;"><p style="color:#f15b5c;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 5px;">The WHY members</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">VIP threads, exclusive Q&A sessions, workshops, and badges.</p></div>
+    </div>
+    <div style="background:#f15b5c;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div><p style="color:#fff;font-size:13px;font-weight:600;margin:0 0 3px;">Want VIP community access?</p><p style="color:rgba(255,255,255,0.75);font-size:12px;margin:0;">Upgrade to The WHY for exclusive threads, workshops and expert access.</p></div><button class="gb" style="flex-shrink:0;margin-left:14px;font-size:12px;padding:8px 14px;">Upgrade →</button></div>
+    <div style="background:rgba(2,88,112,0.06);border:0.5px solid rgba(2,88,112,0.12);border-radius:10px;padding:12px 16px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;"><p style="color:#025870;font-size:12px;margin:0;">Already part of the DT Community on Go High Level?</p><button class="nb" style="font-size:12px;padding:7px 14px;flex-shrink:0;margin-left:12px;">Join there →</button></div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span><span class="ftl">Privacy policy</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- FIND WHY -->
+<div class="pw" id="p-find">
+<div class="ptb"><h2>05 — Find WHY</h2><span>Patient-facing · Find a practitioner · Search coming soon · Quiet Pro WHY link</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt">Chat WHY</span><span class="nt a">Find WHY</span><span class="nt">Live WHY</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Find a practitioner</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">Find your practitioner.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:460px;line-height:1.7;">Search verified functional medicine practitioners by specialty, condition, or location — all ready to help you take what you've learned from DiagnoseThis into a real conversation.</p></div>
+  <div class="sec">
+    <div style="background:#025870;border-radius:12px;padding:20px 24px;text-align:center;margin-bottom:18px;">
+      <div style="background:rgba(255,255,255,0.07);border-radius:8px;display:flex;gap:0;margin-bottom:12px;overflow:hidden;">
+        <input class="inp-d" style="flex:1;border:none;border-radius:0;padding:12px 16px;" placeholder="Search by condition, specialty, or location..."/>
+        <button class="cb" style="border-radius:0;cursor:default;">Search — coming soon</button>
+      </div>
+      <p style="color:rgba(255,255,255,0.4);font-size:12px;margin:0;">Practitioner directory launching soon</p>
+    </div>
+    <div class="card" style="margin-bottom:14px;">
+      <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 12px;">In our directory you'll find:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>500+ verified functional medicine practitioners</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Filter by specialty, condition, location & language</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>View full credentials and patient reviews</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Direct contact & scheduling options</p></div>
+      </div>
+    </div>
+    <div style="background:rgba(2,88,112,0.06);border:0.5px solid rgba(2,88,112,0.12);border-radius:10px;padding:14px 18px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;"><div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 3px;">Are you a functional medicine practitioner?</p><p style="color:#888;font-size:12px;margin:0;">List your practice and reach thousands of informed patients seeking your expertise.</p></div><button class="nb" style="font-size:12px;padding:8px 14px;flex-shrink:0;margin-left:14px;">Learn about Pro WHY →</button></div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- LIVE WHY -->
+<div class="pw" id="p-live">
+<div class="ptb"><h2>06 — Live WHY</h2><span>Patient-facing · $179 session · Coming soon booking · The WHY priority CTA</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt">Chat WHY</span><span class="nt">Find WHY</span><span class="nt a">Live WHY</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Live consultation</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">Book your Live WHY session.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:460px;line-height:1.7;">Talk to a licensed practitioner about your WHY results. Get a 30-minute consultation and personalized guidance — not a rushed appointment.</p></div>
+  <div class="sec">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;align-items:start;">
+      <div>
+        <div style="background:#025870;border-radius:12px;padding:20px;margin-bottom:14px;">
+          <p style="color:rgba(255,255,255,0.5);font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 6px;">Session cost</p>
+          <p style="color:#ffb533;font-size:34px;font-weight:600;margin:0 0 3px;">$179<span style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:400;"> / session</span></p>
+          <p style="color:rgba(255,255,255,0.5);font-size:12px;margin:0 0 14px;">30-minute video consultation</p>
+          <div class="cs-btn">Booking coming soon</div>
+          <p style="color:rgba(255,255,255,0.35);font-size:11px;text-align:center;margin:7px 0 0;">Live consultation booking launching soon</p>
+        </div>
+        <div style="background:rgba(241,91,92,0.06);border:0.5px solid rgba(241,91,92,0.2);border-left:3px solid #f15b5c;border-radius:0 10px 10px 0;padding:13px 15px;">
+          <p style="color:#f15b5c;font-size:12px;font-weight:600;margin:0 0 4px;">The WHY members get priority</p>
+          <p style="color:#555;font-size:12px;line-height:1.6;margin:0 0 10px;">Upgrade to The WHY for priority booking and exclusive practitioner access.</p>
+          <button class="cb" style="font-size:12px;padding:8px 14px;">Upgrade to The WHY →</button>
+        </div>
+      </div>
+      <div class="card">
+        <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 12px;">What's included in your session:</p>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>30-minute video call with a licensed practitioner</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Review your Ask WHY results together in real time</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Personalized recommendations & next-step guidance</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Follow-up summary sent to your email</p></div>
+        </div>
+        <div style="margin-top:14px;padding-top:12px;border-top:0.5px solid rgba(2,88,112,0.08);">
+          <p style="color:#025870;font-size:12px;font-weight:600;margin:0 0 5px;">Why this is different</p>
+          <p style="color:#555;font-size:12px;line-height:1.6;margin:0;">You've already done the work — you have your WHY results and your questions ready. This session is about getting answers, not starting from scratch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- SHOP WHY -->
+<div class="pw" id="p-shop">
+<div class="ptb"><h2>07 — Shop WHY</h2><span>Patient-facing · Dr. Z curated · Supplements & books · Coming soon</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt">Chat WHY</span><span class="nt">Find WHY</span><span class="nt a">Shop WHY</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge">Dr. Z's picks</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:0 0 10px;letter-spacing:-0.4px;">Shop WHY</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:460px;line-height:1.7;">Supplements, bundles, and books curated by Dr. Z — recommended based on what your WHY results reveal.</p></div>
+  <div class="sec">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+      <div style="background:#025870;border-radius:12px;padding:20px;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,181,51,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="5" height="5" rx="1" stroke="#ffb533" stroke-width="1.3"/><rect x="10" y="3" width="5" height="5" rx="1" stroke="#ffb533" stroke-width="1.3"/><rect x="3" y="10" width="5" height="5" rx="1" stroke="#ffb533" stroke-width="1.3"/><path d="M10 12.5h5M12.5 10v5" stroke="#ffb533" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 5px;">Supplements & bundles</p>
+        <p style="color:rgba(255,255,255,0.55);font-size:12px;line-height:1.6;margin:0 0 12px;">Quality supplements recommended for common health concerns. Browse Dr. Z's favorite brands — curated from her clinical experience.</p>
+        <div class="cs-btn">Coming soon</div>
+      </div>
+      <div class="card">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(2,88,112,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="1.5" stroke="#025870" stroke-width="1.3"/><path d="M6 6h6M6 9h6M6 12h4" stroke="#025870" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <p style="color:#025870;font-size:14px;font-weight:600;margin:0 0 5px;">Books & resources</p>
+        <p style="color:#555;font-size:12px;line-height:1.6;margin:0 0 12px;">Educational books on functional medicine, health optimization, and wellness. Many authored by Dr. Z herself.</p>
+        <div style="width:100%;background:#f7f8fa;border:0.5px solid rgba(2,88,112,0.2);border-radius:7px;padding:10px;color:#888;font-size:12px;font-weight:600;text-align:center;">Coming soon</div>
+      </div>
+    </div>
+    <div style="background:rgba(255,181,51,0.08);border:0.5px solid rgba(255,181,51,0.3);border-radius:10px;padding:14px 18px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+      <div style="width:34px;height:34px;border-radius:50%;background:#ffb533;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:#025870;font-size:11px;font-weight:700;">DZ</span></div>
+      <div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 2px;">Curated by Dr. Z</p><p style="color:#555;font-size:12px;margin:0;line-height:1.5;">Everything in this shop is personally reviewed and recommended by Dr. Z. No sponsored products.</p></div>
+    </div>
+  </div>
+  <div class="ft"><div class="fg"><div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div class="lb" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span style="color:#fff;font-size:13px;font-weight:600;">DiagnoseThis</span></div><p style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;margin:0 0 8px;max-width:180px;">Understanding the WHY behind your health.</p><p style="color:rgba(255,255,255,0.3);font-size:10px;margin:0;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p></div><div><p class="ftc">Quick links</p><span class="ftl">Home</span><span class="ftl">About us</span><span class="ftl">Contact</span></div><div><p class="ftc">Plans</p><span class="ftl">Ask WHY (Free)</span><span class="ftl">See WHY</span><span class="ftl">The WHY</span></div><div><p class="ftc">Contact</p><span class="ftl">support@diagnosethis.com</span><span style="color:rgba(255,255,255,0.35);font-size:12px;">[Address — flag for Dr. Z] ⚑</span></div></div><div class="fb"><p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0;max-width:560px;line-height:1.5;">DiagnoseThis is educational in nature and does not replace nor provide medical advice.</p><div style="display:flex;gap:14px;"><span style="color:rgba(255,255,255,0.3);font-size:11px;">Privacy</span><span style="color:rgba(255,255,255,0.3);font-size:11px;">Terms</span></div></div></div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- LAB WHY -->
+<div class="pw" id="p-lab">
+<div class="ptb"><h2>08 — Lab WHY ⚑ Strategic decision needed</h2><span>Recommend moving to practitioner portal · Coming soon · Email waitlist · Lab range demo</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt">Ask WHY</span><span class="nt">Profile</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge-warn">⚑ Strategic decision needed</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:12px 0 10px;letter-spacing:-0.4px;">Lab WHY — Turn labs into answers.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:500px;line-height:1.7;">Upload your labs or connect your lab portal to discover your functional ranges and patterns — in plain language, in seconds.</p></div>
+  <div class="sec">
+    <div class="warn" style="margin-bottom:18px;"><p style="color:#f15b5c;font-size:12px;font-weight:600;margin:0 0 4px;">⚑ Strategic recommendation for Dr. Z</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Lab WHY at $599/month is a practitioner-grade tool. Consider moving this to a separate practitioner portal (pro.diagnosethis.com) rather than surfacing it to patients. If it's patient-facing, pricing and positioning need to be rethought for a consumer audience.</p></div>
+    <div style="background:#025870;border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;">
+      <p style="color:#ffb533;font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 7px;">Coming soon</p>
+      <h2 style="color:#fff;font-size:17px;font-weight:600;margin:0 0 6px;">Lab analysis features launching soon</h2>
+      <p style="color:rgba(255,255,255,0.55);font-size:13px;margin:0 0 14px;">Get notified when lab interpretation goes live.</p>
+      <div style="display:flex;gap:10px;max-width:360px;margin:0 auto;">
+        <input class="inp-d" style="flex:1;border-radius:8px;" placeholder="you@example.com"/>
+        <button class="gb" style="flex-shrink:0;font-size:12px;padding:10px 14px;">Notify me</button>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:24px;">
+      <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 12px;">Example: Functional range analysis</p>
+      <div style="margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="color:#333;font-size:12px;font-weight:600;">Vitamin D</span><span style="color:#f15b5c;font-size:11px;font-weight:600;">Suboptimal</span></div>
+        <div style="background:#f7f8fa;border-radius:4px;height:10px;position:relative;overflow:hidden;"><div style="position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(to right,#f15b5c,#ffb533,#00a2b0);border-radius:4px;"></div><div style="position:absolute;left:47%;top:-2px;width:2px;height:14px;background:#025870;border-radius:2px;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:3px;"><span style="color:#aaa;font-size:10px;">Low</span><span style="color:#aaa;font-size:10px;">Optimal</span><span style="color:#aaa;font-size:10px;">High</span></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="color:#333;font-size:12px;font-weight:600;">Iron</span><span style="color:#00a2b0;font-size:11px;font-weight:600;">Optimal</span></div>
+        <div style="background:#f7f8fa;border-radius:4px;height:10px;position:relative;overflow:hidden;"><div style="position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(to right,#f15b5c,#ffb533,#00a2b0);border-radius:4px;"></div><div style="position:absolute;left:62%;top:-2px;width:2px;height:14px;background:#025870;border-radius:2px;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:3px;"><span style="color:#aaa;font-size:10px;">Low</span><span style="color:#aaa;font-size:10px;">Optimal</span><span style="color:#aaa;font-size:10px;">High</span></div>
+      </div>
+      <p style="color:#aaa;font-size:11px;text-align:center;margin:10px 0 0;">This is an example. Your results will be fully customized.</p>
+    </div>
+  </div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+<!-- PRO WHY -->
+<div class="pw" id="p-pro">
+<div class="ptb"><h2>09 — Pro WHY ⚑ Strategic decision needed</h2><span>Recommend moving to practitioner portal · $197/mo or $1997/yr · Waitlist CTA</span></div>
+<div class="mock">
+  <div class="hdr"><div class="lc"><div class="lb"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="ln">DiagnoseThis</span></div><div class="nav"><span class="nt">Dashboard</span><span class="nt">Ask WHY</span><span class="nt">Profile</span><div class="uc"><div class="ua"><span style="color:#025870;font-size:9px;font-weight:700;">YJ</span></div><span style="color:#fff;font-size:12px;">Yeldho Joy</span></div></div></div>
+  <div class="hero"><div class="badge-warn">⚑ Strategic decision needed</div><h1 style="color:#fff;font-size:26px;font-weight:600;margin:12px 0 10px;letter-spacing:-0.4px;">Pro WHY — For practitioners.</h1><p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 auto;max-width:500px;line-height:1.7;">Join the DiagnoseThis practitioner network. Get listed in the directory and connect with thousands of informed patients seeking your expertise.</p></div>
+  <div class="sec">
+    <div class="warn" style="margin-bottom:18px;"><p style="color:#f15b5c;font-size:12px;font-weight:600;margin:0 0 4px;">⚑ Strategic recommendation for Dr. Z</p><p style="color:#555;font-size:12px;line-height:1.6;margin:0;">Pro WHY is a practitioner product. Recommend moving it to a dedicated practitioner portal (pro.diagnosethis.com) or the Functional Medicine Academy site. Keep a quiet link in the DiagnoseThis footer — "Are you a practitioner? Learn about Pro WHY →" — without making it a primary nav item patients encounter.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+      <div style="background:#025870;border-radius:12px;padding:20px;">
+        <p style="color:rgba(255,255,255,0.5);font-size:10px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 8px;">Practitioner listing</p>
+        <div style="display:flex;align-items:baseline;gap:7px;margin-bottom:3px;"><p style="color:#ffb533;font-size:26px;font-weight:600;margin:0;">$197</p><span style="color:rgba(255,255,255,0.5);font-size:12px;">/month</span></div>
+        <div style="display:flex;align-items:baseline;gap:7px;margin-bottom:4px;"><p style="color:#fff;font-size:17px;font-weight:600;margin:0;">$1,997</p><span style="color:rgba(255,255,255,0.5);font-size:12px;">/year</span></div>
+        <p style="color:rgba(255,255,255,0.4);font-size:11px;margin:0 0 14px;">Save $367 with annual billing</p>
+        <div class="cs-btn">Directory listing coming soon</div>
+      </div>
+      <div class="card">
+        <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 12px;">What's included:</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Premium listing in Find WHY directory</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Full practice profile with photos & credentials</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Direct patient inquiry form</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Booking calendar integration</p></div>
+          <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#00a2b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Monthly analytics & insights</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:14px;">
+      <p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 10px;">Who should join Pro WHY:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Functional Medicine Practitioners</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Naturopathic Doctors (ND)</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Integrative Medicine MDs</p></div>
+        <div class="ci"><svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#ffb533" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Health Coaches & Nutritionists</p></div>
+      </div>
+    </div>
+    <div style="background:#ffb533;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><div><p style="color:#025870;font-size:13px;font-weight:600;margin:0 0 3px;">Ready to grow your practice?</p><p style="color:rgba(2,88,112,0.7);font-size:12px;margin:0;">Connect with patients already educated about functional medicine.</p></div><button class="nb" style="flex-shrink:0;margin-left:14px;font-size:12px;padding:9px 16px;">Join the waitlist →</button></div>
+    <p style="color:#888;font-size:12px;text-align:center;margin:0 0 4px;">Have questions? <span style="color:#00a2b0;">practitioners@diagnosethis.com</span></p>
+    <p style="color:#888;font-size:12px;text-align:center;margin:0 0 24px;cursor:pointer;">← Back to Find WHY</p>
+  </div>
+  <div class="bn"><div class="bb"><div class="bt">Ask</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Chat</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Find</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Live</div><div class="bw">WHY</div></div><div class="bb"><div class="bt">Shop</div><div class="bw">WHY</div></div></div>
+</div></div>
+
+</div>
+<script>
+function show(id){
+  document.querySelectorAll('.pw').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  event.target.closest('.ni').classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body></html>
