@@ -1,0 +1,290 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>DiagnoseThis — Color Comparison</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Poppins,sans-serif;background:#eee;}
+.print-bar{background:#222;color:#fff;text-align:center;padding:14px;font-size:13px;font-weight:600;}
+.print-bar span{color:#ffb533;}
+.page{width:900px;margin:24px auto;background:#fff;border-radius:8px;overflow:hidden;page-break-after:always;}
+.page-label{padding:16px 24px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.version{padding:0;}
+.ver-label{padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;text-align:center;}
+
+/* VERSION A — Official Brand Colors */
+.va-wrap{background:#F15B5C;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.va-hdr{background:#F15B5C;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:0.5px solid rgba(255,255,255,0.2);}
+.va-logo{display:flex;align-items:center;gap:8px;}
+.va-logoball{width:26px;height:26px;border-radius:50%;background:#FFB533;display:flex;align-items:center;justify-content:center;}
+.va-logoname{color:#fff;font-size:14px;font-weight:700;}
+.va-banner{background:#00A2B0;padding:8px 20px;text-align:center;}
+.va-banner p{color:#fff;font-size:11px;font-weight:600;}
+.va-body{display:flex;min-height:420px;}
+.va-left{flex:1;background:#F15B5C;padding:24px 16px 0;display:flex;flex-direction:column;justify-content:space-between;border-right:0.5px solid rgba(255,255,255,0.15);}
+.va-left h1{color:#fff;font-size:18px;font-weight:700;line-height:1.3;margin:0 0 8px;}
+.va-left p{color:rgba(255,255,255,0.75);font-size:11px;line-height:1.6;margin:0 0 14px;}
+.va-check{display:flex;align-items:center;gap:6px;margin-bottom:7px;}
+.va-check span{color:rgba(255,255,255,0.8);font-size:11px;}
+.va-ck{width:16px;height:16px;border-radius:50%;background:#FFB533;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.va-girl{width:100px;height:110px;background:rgba(0,162,176,0.2);border-radius:6px 6px 0 0;border:0.5px solid rgba(0,162,176,0.3);border-bottom:none;display:flex;align-items:center;justify-content:center;}
+.va-right{width:200px;flex-shrink:0;background:#fff;padding:20px 16px;}
+.va-right h2{color:#F15B5C;font-size:15px;font-weight:700;margin:0 0 4px;}
+.va-right p{color:#888;font-size:11px;margin:0 0 16px;}
+.va-lbl{display:block;color:#555;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;}
+.va-inp{width:100%;background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:8px 10px;font-size:12px;color:#333;margin-bottom:10px;}
+.va-btn{width:100%;background:#FFB533;border:none;border-radius:6px;padding:10px;color:#000;font-size:12px;font-weight:700;cursor:pointer;margin-bottom:10px;}
+.va-link{color:#00A2B0;font-size:11px;text-align:center;display:block;}
+.va-or{display:flex;align-items:center;gap:8px;margin:10px 0;}
+.va-or div{flex:1;height:0.5px;background:#eee;}
+.va-or span{color:#aaa;font-size:10px;}
+.va-gbtn{width:100%;background:#fff;border:1px solid #ddd;border-radius:6px;padding:9px;color:#555;font-size:11px;cursor:pointer;}
+.va-nav{display:flex;justify-content:center;gap:8px;padding:10px 20px;background:#FFB533;}
+.va-nb{text-align:center;padding:6px 12px;min-width:48px;}
+.va-nb-t{color:rgba(0,0,0,0.5);font-size:7px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;}
+.va-nb-w{color:#000;font-size:10px;font-weight:700;}
+.va-nb.active .va-nb-w{color:#F15B5C;}
+
+/* VERSION B — Deep Navy System */
+.vb-wrap{background:#025870;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.vb-hdr{background:#025870;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:0.5px solid rgba(255,255,255,0.12);}
+.vb-logo{display:flex;align-items:center;gap:8px;}
+.vb-logoball{width:26px;height:26px;border-radius:50%;background:#FFB533;display:flex;align-items:center;justify-content:center;}
+.vb-logoname{color:#fff;font-size:14px;font-weight:700;}
+.vb-banner{background:rgba(255,181,51,0.1);border-bottom:0.5px solid rgba(255,181,51,0.25);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.vb-banner p{color:rgba(255,255,255,0.75);font-size:11px;}
+.vb-banner span{color:#FFB533;font-weight:600;}
+.vb-body{display:flex;min-height:420px;}
+.vb-left{flex:1;background:#025870;padding:24px 16px 0;display:flex;flex-direction:column;justify-content:space-between;border-right:0.5px solid rgba(255,255,255,0.1);}
+.vb-left h1{color:#fff;font-size:18px;font-weight:600;line-height:1.3;margin:0 0 8px;letter-spacing:-0.3px;}
+.vb-left p{color:rgba(255,255,255,0.55);font-size:11px;line-height:1.6;margin:0 0 14px;}
+.vb-check{display:flex;align-items:center;gap:6px;margin-bottom:7px;}
+.vb-check span{color:rgba(255,255,255,0.7);font-size:11px;}
+.vb-ck{width:16px;height:16px;border-radius:50%;background:rgba(0,162,176,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.vb-girl{width:100px;height:110px;background:rgba(0,162,176,0.12);border-radius:6px 6px 0 0;border:0.5px solid rgba(0,162,176,0.2);border-bottom:none;display:flex;align-items:center;justify-content:center;}
+.vb-right{width:200px;flex-shrink:0;background:rgba(255,255,255,0.04);padding:20px 16px;}
+.vb-right p.sub{color:rgba(255,255,255,0.4);font-size:9px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin:0 0 6px;}
+.vb-right h2{color:#fff;font-size:15px;font-weight:600;margin:0 0 4px;letter-spacing:-0.2px;}
+.vb-right p.desc{color:rgba(255,255,255,0.45);font-size:10px;margin:0 0 16px;line-height:1.5;}
+.vb-lbl{display:block;color:rgba(255,255,255,0.55);font-size:9px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;}
+.vb-inp{width:100%;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.18);border-radius:6px;padding:8px 10px;font-size:12px;color:#fff;margin-bottom:10px;}
+.vb-btn{width:100%;background:#F15B5C;border:none;border-radius:6px;padding:10px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:10px;}
+.vb-link{color:#00A2B0;font-size:11px;text-align:center;display:block;}
+.vb-or{display:flex;align-items:center;gap:8px;margin:10px 0;}
+.vb-or div{flex:1;height:0.5px;background:rgba(255,255,255,0.12);}
+.vb-or span{color:rgba(255,255,255,0.3);font-size:10px;}
+.vb-gbtn{width:100%;background:transparent;border:0.5px solid rgba(255,255,255,0.2);border-radius:6px;padding:9px;color:rgba(255,255,255,0.65);font-size:11px;cursor:pointer;}
+.vb-nav{display:flex;justify-content:center;gap:8px;padding:10px 20px;border-top:0.5px solid rgba(255,255,255,0.08);}
+.vb-nb{text-align:center;border:1px solid #FFB533;border-radius:6px;padding:6px 12px;min-width:48px;}
+.vb-nb-t{color:rgba(255,255,255,0.5);font-size:7px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:2px;}
+.vb-nb-w{color:#FFB533;font-size:10px;font-weight:600;}
+
+/* ANALYSIS PAGE */
+.analysis{background:#fff;padding:32px 36px;}
+.analysis h2{color:#1a1a1a;font-size:20px;font-weight:700;margin:0 0 20px;padding-bottom:12px;border-bottom:2px solid #f0f0f0;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;}
+.col-a{background:#fff8f8;border:1px solid rgba(241,91,92,0.2);border-radius:10px;padding:18px;}
+.col-b{background:#f0f6f8;border:1px solid rgba(2,88,112,0.2);border-radius:10px;padding:18px;}
+.col-title{font-size:13px;font-weight:700;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,0.08);}
+.col-a .col-title{color:#F15B5C;}
+.col-b .col-title{color:#025870;}
+.pro{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.pro-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.pro p{font-size:12px;color:#444;line-height:1.5;margin:0;}
+.con-dot{background:#aaa;}
+.pro-dot-a{background:#F15B5C;}
+.pro-dot-b{background:#025870;}
+.rec-box{background:#025870;border-radius:10px;padding:20px 24px;color:#fff;}
+.rec-box h3{color:#FFB533;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin:0 0 8px;}
+.rec-box p{color:rgba(255,255,255,0.8);font-size:13px;line-height:1.7;margin:0 0 10px;}
+.rec-box .note{color:rgba(255,255,255,0.5);font-size:11px;line-height:1.6;margin:0;font-style:italic;}
+.swatch-row{display:flex;gap:12px;margin-bottom:20px;}
+.swatch{border-radius:8px;padding:12px 16px;flex:1;text-align:center;}
+.swatch p{font-size:10px;font-weight:700;margin:4px 0 0;}
+.swatch span{font-size:9px;opacity:0.7;}
+
+@media print{
+  .print-bar{display:none;}
+  body{background:#fff;}
+  .page{margin:0;border-radius:0;box-shadow:none;}
+}
+</style>
+</head><body>
+
+<div class="print-bar">🖨️ File → Print → Save as PDF &nbsp;|&nbsp; <span>DiagnoseThis — Color Direction Comparison</span></div>
+
+<!-- PAGE 1: VERSION A — OFFICIAL BRAND COLORS -->
+<div class="page">
+  <div class="page-label" style="background:#fff8f8;border-bottom:2px solid #F15B5C;">
+    <span style="color:#F15B5C;">Version A — Official brand colors (Coral · Teal · Yellow)</span>
+    <span style="color:#aaa;font-size:10px;">Login page mockup</span>
+  </div>
+  <div class="va-wrap">
+    <div class="va-hdr">
+      <div class="va-logo">
+        <div class="va-logoball"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#F15B5C" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <span class="va-logoname">DiagnoseThis</span>
+      </div>
+      <span style="color:rgba(255,255,255,0.7);font-size:11px;">New here? <span style="color:#FFB533;font-weight:700;">Sign up</span></span>
+    </div>
+    <div class="va-banner"><p>Want to go deeper? Join the <strong>DT Community</strong> — live classes, Q&As, expert sessions.</p></div>
+    <div class="va-body">
+      <div class="va-left">
+        <div>
+          <h1>You're not broken.<br/>You just need clarity.</h1>
+          <p>DiagnoseThis helps you organize what you're experiencing, recognize patterns, and ask better questions.</p>
+          <div class="va-check"><div class="va-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Truth over reassurance</span></div>
+          <div class="va-check"><div class="va-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Clarity over complexity</span></div>
+          <div class="va-check"><div class="va-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Humanity over systems</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:8px;margin-top:16px;">
+          <div class="va-girl"><svg width="44" height="76" viewBox="0 0 60 100" fill="none"><ellipse cx="30" cy="26" rx="16" ry="18" fill="rgba(255,181,51,0.3)"/><path d="M6 100C6 75 54 75 54 100" fill="rgba(0,162,176,0.25)"/><circle cx="30" cy="24" r="10" fill="rgba(255,181,51,0.4)"/><circle cx="26" cy="26" r="1.5" fill="rgba(255,255,255,0.7)"/><circle cx="34" cy="26" r="1.5" fill="rgba(255,255,255,0.7)"/></svg></div>
+          <div style="margin-bottom:10px;"><div style="background:rgba(255,255,255,0.92);border-radius:6px 6px 6px 2px;padding:7px 9px;"><p style="color:#F15B5C;font-size:9px;font-weight:700;margin:0;">"Why didn't anyone tell me this before?"</p></div></div>
+        </div>
+      </div>
+      <div class="va-right">
+        <h2>Welcome Back!</h2>
+        <p>Login to access your WHYs.</p>
+        <label class="va-lbl">Email</label>
+        <input class="va-inp" placeholder="you@example.com" style="color:#999;"/>
+        <label class="va-lbl">Password</label>
+        <input class="va-inp" placeholder="Enter password" style="color:#999;"/>
+        <div style="text-align:right;margin-bottom:12px;"><span style="color:#00A2B0;font-size:10px;">Forgot password?</span></div>
+        <button class="va-btn">LOGIN →</button>
+        <div class="va-or"><div></div><span>or</span><div></div></div>
+        <button class="va-gbtn">Continue with Google</button>
+        <a class="va-link" style="margin-top:10px;display:block;">Don't have an account? <strong>Sign up</strong></a>
+      </div>
+    </div>
+    <div class="va-nav">
+      <div class="va-nb active"><div class="va-nb-t">Ask</div><div class="va-nb-w">WHY</div></div>
+      <div class="va-nb"><div class="va-nb-t">Chat</div><div class="va-nb-w">WHY</div></div>
+      <div class="va-nb"><div class="va-nb-t">Find</div><div class="va-nb-w">WHY</div></div>
+      <div class="va-nb"><div class="va-nb-t">Live</div><div class="va-nb-w">WHY</div></div>
+      <div class="va-nb"><div class="va-nb-t">Shop</div><div class="va-nb-w">WHY</div></div>
+    </div>
+  </div>
+  <div style="padding:12px 20px;background:#fffaf0;border-top:1px solid rgba(255,181,51,0.2);">
+    <p style="font-size:10px;color:#888;"><strong style="color:#F15B5C;">Color notes:</strong> Primary background = Coral #F15B5C · Banner = Teal #00A2B0 · CTA button = Yellow #FFB533 · Nav bar = Yellow #FFB533 · Active accent = Coral #F15B5C</p>
+  </div>
+</div>
+
+<!-- PAGE 2: VERSION B — DEEP NAVY SYSTEM -->
+<div class="page">
+  <div class="page-label" style="background:#f0f6f8;border-bottom:2px solid #025870;">
+    <span style="color:#025870;">Version B — Deep navy system (#025870 base — our recommended direction)</span>
+    <span style="color:#aaa;font-size:10px;">Login page mockup</span>
+  </div>
+  <div class="vb-wrap">
+    <div class="vb-hdr">
+      <div class="vb-logo">
+        <div class="vb-logoball"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#025870" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#025870" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <span class="vb-logoname">DiagnoseThis</span>
+      </div>
+      <span style="color:rgba(255,255,255,0.5);font-size:11px;">New here? <span style="color:#FFB533;cursor:pointer;">Sign up</span></span>
+    </div>
+    <div class="vb-banner"><div style="width:5px;height:5px;border-radius:50%;background:#FFB533;flex-shrink:0;"></div><p>Want to go deeper? Join the <span>DT Community</span> — live classes, Q&As, expert sessions.</p></div>
+    <div class="vb-body">
+      <div class="vb-left">
+        <div>
+          <h1>You're not broken.<br/>You just need clarity.</h1>
+          <p>DiagnoseThis helps you organize what you're experiencing, recognize patterns, and ask better questions.</p>
+          <div class="vb-check"><div class="vb-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00A2B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Truth over reassurance</span></div>
+          <div class="vb-check"><div class="vb-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00A2B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Clarity over complexity</span></div>
+          <div class="vb-check"><div class="vb-ck"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00A2B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Humanity over systems</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:8px;margin-top:16px;">
+          <div class="vb-girl"><svg width="44" height="76" viewBox="0 0 60 100" fill="none"><ellipse cx="30" cy="26" rx="16" ry="18" fill="rgba(255,181,51,0.25)"/><path d="M6 100C6 75 54 75 54 100" fill="rgba(0,162,176,0.2)"/><circle cx="30" cy="24" r="10" fill="rgba(255,181,51,0.3)"/><circle cx="26" cy="26" r="1.5" fill="rgba(255,255,255,0.6)"/><circle cx="34" cy="26" r="1.5" fill="rgba(255,255,255,0.6)"/></svg></div>
+          <div style="margin-bottom:10px;"><div style="background:rgba(255,255,255,0.92);border-radius:6px 6px 6px 2px;padding:7px 9px;"><p style="color:#025870;font-size:9px;font-weight:600;margin:0;">"Why didn't anyone tell me this before?"</p></div></div>
+        </div>
+      </div>
+      <div class="vb-right">
+        <p class="sub">Welcome back</p>
+        <h2>Sign in to your account</h2>
+        <p class="desc">Access your health questions, saved WHYs, and personalized insights.</p>
+        <label class="vb-lbl">Email</label>
+        <input class="vb-inp" placeholder="you@example.com"/>
+        <label class="vb-lbl">Password</label>
+        <input type="password" class="vb-inp" placeholder="Enter password"/>
+        <div style="text-align:right;margin-bottom:12px;"><span style="color:#00A2B0;font-size:10px;">Forgot password?</span></div>
+        <button class="vb-btn">Sign in to DiagnoseThis</button>
+        <div class="vb-or"><div></div><span>or</span><div></div></div>
+        <button class="vb-gbtn">Continue with Google</button>
+        <p style="text-align:center;margin-top:10px;color:rgba(255,255,255,0.4);font-size:10px;">Don't have an account? <span style="color:#FFB533;">Sign up free</span></p>
+      </div>
+    </div>
+    <div class="vb-nav">
+      <div class="vb-nb"><div class="vb-nb-t">Ask</div><div class="vb-nb-w">WHY</div></div>
+      <div class="vb-nb"><div class="vb-nb-t">Chat</div><div class="vb-nb-w">WHY</div></div>
+      <div class="vb-nb"><div class="vb-nb-t">Find</div><div class="vb-nb-w">WHY</div></div>
+      <div class="vb-nb"><div class="vb-nb-t">Live</div><div class="vb-nb-w">WHY</div></div>
+      <div class="vb-nb"><div class="vb-nb-t">Shop</div><div class="vb-nb-w">WHY</div></div>
+    </div>
+  </div>
+  <div style="padding:12px 20px;background:#f0f6f8;border-top:1px solid rgba(2,88,112,0.15);">
+    <p style="font-size:10px;color:#888;"><strong style="color:#025870;">Color notes:</strong> Primary background = Deep Navy #025870 (not in official brand kit) · CTA button = Coral #F15B5C · Gold accents = Yellow #FFB533 · Supporting = Teal #00A2B0 · Nav outlined buttons = Yellow #FFB533</p>
+  </div>
+</div>
+
+<!-- PAGE 3: ANALYSIS & RECOMMENDATION -->
+<div class="page">
+  <div class="page-label" style="background:#f8f8f8;border-bottom:2px solid #333;">
+    <span style="color:#333;">Design direction analysis & recommendation for Dr. Z</span>
+    <span style="color:#aaa;font-size:10px;">Strategic color brief</span>
+  </div>
+  <div class="analysis">
+    <h2>Color Direction Comparison</h2>
+
+    <div style="margin-bottom:24px;">
+      <p style="color:#555;font-size:13px;line-height:1.7;margin:0 0 16px;">Both versions use the same brand colors — the core difference is which color serves as the <strong>dominant background</strong>. Version A uses Coral as the hero. Version B uses Deep Navy (#025870) as the base, with Coral reserved for CTAs only.</p>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <p style="font-size:11px;font-weight:700;color:#555;letter-spacing:0.6px;text-transform:uppercase;margin:0 0 12px;">Color swatches at a glance</p>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#F15B5C;"><p style="color:#fff;">Coral</p><span style="color:rgba(255,255,255,0.7);">#F15B5C</span></div>
+        <div class="swatch" style="background:#00A2B0;"><p style="color:#fff;">Teal</p><span style="color:rgba(255,255,255,0.7);">#00A2B0</span></div>
+        <div class="swatch" style="background:#FFB533;"><p style="color:#000;">Yellow</p><span style="color:rgba(0,0,0,0.6);">#FFB533</span></div>
+        <div class="swatch" style="background:#025870;"><p style="color:#fff;">Deep Navy</p><span style="color:rgba(255,255,255,0.6);">#025870</span></div>
+        <div class="swatch" style="background:#fff;border:1px solid #ddd;"><p style="color:#333;">White</p><span style="color:#aaa;">#FFFFFF</span></div>
+      </div>
+      <p style="font-size:11px;color:#f15b5c;background:rgba(241,91,92,0.06);border-radius:6px;padding:8px 12px;margin:0;">⚑ Note: Deep Navy #025870 is not in the official brand kit. Dr. Z will need to decide whether to adopt it as a brand extension or stay strictly within the original palette.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="col-a">
+        <p class="col-title">Version A — Official Brand Colors</p>
+        <p style="font-size:11px;font-weight:600;color:#555;margin:0 0 8px;">Strengths</p>
+        <div class="pro"><div class="pro-dot pro-dot-a"></div><p>Bold and energetic — immediately eye-catching on an ad or social feed</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-a"></div><p>100% on-brand — uses only approved hex codes from the brand kit</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-a"></div><p>Coral as a hero color signals urgency and emotion — works well for a conversion page</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-a"></div><p>High contrast — accessible and readable on mobile</p></div>
+        <p style="font-size:11px;font-weight:600;color:#555;margin:10px 0 8px;">Considerations</p>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>Coral as a dominant background can feel alarming in a health context — red-adjacent colors often signal danger</p></div>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>Less premium feel — may read more like a consumer app than a clinical health tool</p></div>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>When everything is coral, the CTA button loses its punch — nothing stands out</p></div>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>Yellow nav bar on coral background creates visual noise</p></div>
+      </div>
+      <div class="col-b">
+        <p class="col-title">Version B — Deep Navy System ★ Recommended</p>
+        <p style="font-size:11px;font-weight:600;color:#555;margin:0 0 8px;">Strengths</p>
+        <div class="pro"><div class="pro-dot pro-dot-b"></div><p>Premium and trustworthy — navy reads as authoritative and calm, ideal for health</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-b"></div><p>Coral CTA pops dramatically against navy — the most important button is impossible to miss</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-b"></div><p>Gold accents create warmth without overwhelming — feels human and approachable</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-b"></div><p>Teal used subtly as a supporting tone — all three brand colors still present</p></div>
+        <div class="pro"><div class="pro-dot pro-dot-b"></div><p>Aligns with the About page voice — "calm authority, no hype"</p></div>
+        <p style="font-size:11px;font-weight:600;color:#555;margin:10px 0 8px;">Considerations</p>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>#025870 is not in the official brand kit — requires Dr. Z's approval to adopt</p></div>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>Less immediately attention-grabbing in a social ad context than coral</p></div>
+        <div class="pro"><div class="pro-dot con-dot"></div><p>Darker palette may need careful attention to accessibility on mobile screens in bright light</p></div>
+      </div>
+    </div>
+
+    <div class="rec-box">
+      <h3>Our recommendation</h3>
+      <p>Version B — the deep navy system — is the stronger design direction for DiagnoseThis. The brand's own About page describes the tone as "calm authority, no hype, clean and minimal." Navy delivers that. Coral as a background feels energetic for ads but undermines trust in a logged-in health experience where users are sharing sensitive symptoms.</p>
+      <p>The practical solution: <strong style="color:#FFB533;">use Coral for ads and landing page CTAs</strong> (where boldness converts) and <strong style="color:#FFB533;">use Navy as the app's primary background</strong> (where trust and clarity matter). This gives Dr. Z both — energy for acquisition, authority for retention.</p>
+      <p class="note">⚑ Dr. Z will need to formally approve #025870 as a brand color extension, or provide an alternative dark anchor color from the official palette.</p>
+    </div>
+  </div>
+</div>
+
+</body></html>
