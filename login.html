@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Login</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+
+/* shared components */
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:30px;height:30px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{color:#fff;font-size:17px;font-weight:800;letter-spacing:-0.3px;}
+.logo-text span{color:#F15B5C;}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;}
+.field-label{display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:7px;}
+.field-input{width:100%;background:#fff;border:2px solid #000;border-radius:8px;padding:12px 14px;color:#333;font-size:14px;outline:none;font-family:inherit;}
+.field-input:focus{border-color:#00A2B0;}
+.cta-btn{width:100%;background:#F15B5C;border:none;border-radius:8px;padding:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;}
+.google-btn{width:100%;background:#fff;border:2px solid #000;border-radius:8px;padding:12px;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
+.divider{display:flex;align-items:center;gap:12px;}
+.divider-line{flex:1;height:1px;background:#ddd;}
+.divider span{color:#aaa;font-size:12px;}
+.free-box{padding:14px 16px;border:2px solid #00A2B0;border-radius:8px;text-align:center;}
+.free-box p{color:#000;font-size:12px;font-weight:700;margin:0 0 3px;}
+.free-box small{color:#555;font-size:11px;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-item:first-child{background:rgba(0,162,176,0.15);}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.nav-item:first-child .nav-word{color:#00A2B0;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+
+/* ===================== DESKTOP ===================== */
+#view-desktop{display:block;}
+#view-tablet{display:none;}
+#view-mobile{display:none;}
+
+/* desktop shell */
+#view-desktop .shell{max-width:1280px;}
+#view-desktop .top-nav{background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;}
+#view-desktop .nav-link{color:rgba(255,255,255,0.5);font-size:13px;}
+#view-desktop .nav-link strong{color:#00A2B0;font-weight:700;cursor:pointer;}
+#view-desktop .banner{background:#F15B5C;padding:10px 32px;display:flex;align-items:center;justify-content:center;gap:12px;}
+#view-desktop .banner-text{color:#fff;font-size:13px;font-weight:700;}
+#view-desktop .banner-text em{color:#000;font-style:normal;}
+#view-desktop .banner-btn{background:#000;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;cursor:pointer;border:none;white-space:nowrap;}
+#view-desktop .body-split{display:flex;min-height:580px;}
+#view-desktop .left-panel{flex:1;background:#111;display:flex;flex-direction:column;justify-content:space-between;padding:44px 44px 0;border-right:3px solid #00A2B0;}
+#view-desktop .hero-h1{color:#fff;font-size:36px;font-weight:900;line-height:1.1;margin:8px 0;letter-spacing:-1px;}
+#view-desktop .hero-h1 em{color:#F15B5C;font-style:normal;display:block;}
+#view-desktop .hero-sub{color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;margin:0 0 24px;max-width:340px;}
+#view-desktop .bullets{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+#view-desktop .bullet{display:flex;align-items:center;gap:10px;}
+#view-desktop .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+#view-desktop .bullet p{color:#fff;font-size:14px;font-weight:600;margin:0;}
+#view-desktop .testimonial{padding:16px 20px;background:rgba(0,162,176,0.15);border:1px solid rgba(0,162,176,0.35);border-radius:10px;max-width:380px;}
+#view-desktop .t-label{color:#00A2B0;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin:0 0 6px;}
+#view-desktop .t-quote{color:#fff;font-size:13px;line-height:1.6;margin:0;}
+#view-desktop .t-attr{color:rgba(255,255,255,0.4);font-size:11px;margin:6px 0 0;}
+#view-desktop .char-area{display:flex;align-items:flex-end;gap:16px;margin-top:32px;}
+#view-desktop .char-frame{width:190px;height:230px;background:#1a1a1a;border-radius:12px 12px 0 0;border:2px solid #00A2B0;border-bottom:none;overflow:hidden;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center;}
+#view-desktop .bubble-wrap{margin-bottom:16px;max-width:190px;}
+#view-desktop .bubble-inner{background:#00A2B0;border-radius:12px 12px 12px 2px;padding:12px 16px;}
+#view-desktop .bubble-inner p:first-child{color:#fff;font-size:13px;font-weight:800;margin:0 0 4px;}
+#view-desktop .bubble-inner p:last-child{color:rgba(255,255,255,0.8);font-size:12px;margin:0;line-height:1.5;}
+#view-desktop .right-panel{width:400px;flex-shrink:0;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:44px 40px;}
+#view-desktop .welcome-label{color:#aaa;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;}
+#view-desktop .form-title{color:#000;font-size:26px;font-weight:900;margin:0 0 4px;letter-spacing:-0.5px;}
+#view-desktop .form-sub{color:#555;font-size:14px;margin:0 0 28px;line-height:1.5;}
+#view-desktop .field-wrap{margin-bottom:14px;}
+#view-desktop .forgot{text-align:right;margin-bottom:24px;}
+#view-desktop .forgot span{color:#F15B5C;font-size:12px;font-weight:600;cursor:pointer;}
+#view-desktop .form-gap{margin-bottom:14px;}
+#view-desktop .form-gap2{margin-bottom:20px;}
+#view-desktop .signup-note{text-align:center;color:#555;font-size:13px;margin:0 0 16px;}
+#view-desktop .signup-note span{color:#F15B5C;font-weight:700;cursor:pointer;}
+
+/* ===================== TABLET ===================== */
+#view-tablet{display:none;}
+#view-tablet .shell{max-width:768px;}
+#view-tablet .top-nav{background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;}
+#view-tablet .logo-text{font-size:15px;}
+#view-tablet .nav-link{color:rgba(255,255,255,0.5);font-size:12px;}
+#view-tablet .nav-link strong{color:#00A2B0;}
+#view-tablet .banner{background:#F15B5C;padding:9px 20px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+#view-tablet .banner-text{color:#fff;font-size:12px;font-weight:700;}
+#view-tablet .banner-text em{color:#000;font-style:normal;}
+#view-tablet .banner-btn{background:#000;color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;border:none;cursor:pointer;}
+#view-tablet .hero-section{background:#111;padding:36px 40px 32px;border-bottom:3px solid #00A2B0;}
+#view-tablet .hero-h1{color:#fff;font-size:30px;font-weight:900;line-height:1.1;margin:12px 0;letter-spacing:-0.5px;}
+#view-tablet .hero-h1 em{color:#F15B5C;font-style:normal;display:block;}
+#view-tablet .hero-sub{color:rgba(255,255,255,0.6);font-size:14px;line-height:1.7;margin:0 0 20px;max-width:500px;}
+#view-tablet .bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+#view-tablet .bullet{display:flex;align-items:center;gap:10px;}
+#view-tablet .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+#view-tablet .bullet p{color:#fff;font-size:14px;font-weight:600;margin:0;}
+#view-tablet .testimonial{padding:14px 18px;background:rgba(0,162,176,0.15);border:1px solid rgba(0,162,176,0.35);border-radius:10px;max-width:480px;}
+#view-tablet .t-label{color:#00A2B0;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin:0 0 6px;}
+#view-tablet .t-quote{color:#fff;font-size:13px;line-height:1.6;margin:0;}
+#view-tablet .t-attr{color:rgba(255,255,255,0.4);font-size:11px;margin:6px 0 0;}
+#view-tablet .form-section{background:#fff;padding:36px 40px;}
+#view-tablet .welcome-label{color:#aaa;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;}
+#view-tablet .form-title{color:#000;font-size:24px;font-weight:900;margin:0 0 4px;letter-spacing:-0.5px;}
+#view-tablet .form-sub{color:#555;font-size:14px;margin:0 0 24px;line-height:1.5;}
+#view-tablet .field-wrap{margin-bottom:14px;}
+#view-tablet .forgot{text-align:right;margin-bottom:22px;}
+#view-tablet .forgot span{color:#F15B5C;font-size:12px;font-weight:600;cursor:pointer;}
+#view-tablet .form-gap{margin-bottom:14px;}
+#view-tablet .form-gap2{margin-bottom:20px;}
+#view-tablet .signup-note{text-align:center;color:#555;font-size:13px;margin:0 0 16px;}
+#view-tablet .signup-note span{color:#F15B5C;font-weight:700;cursor:pointer;}
+
+/* ===================== MOBILE ===================== */
+#view-mobile .shell{max-width:375px;}
+#view-mobile .top-nav{background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;}
+#view-mobile .logo-icon{width:26px;height:26px;}
+#view-mobile .logo-text{font-size:14px;}
+#view-mobile .nav-link{color:rgba(255,255,255,0.5);font-size:11px;}
+#view-mobile .nav-link strong{color:#00A2B0;}
+#view-mobile .banner{background:#F15B5C;padding:8px 16px;text-align:center;}
+#view-mobile .banner-text{color:#fff;font-size:11px;font-weight:700;display:block;margin-bottom:6px;}
+#view-mobile .banner-text em{color:#000;font-style:normal;}
+#view-mobile .banner-btn{background:#000;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;}
+#view-mobile .hero-section{background:#111;padding:24px 20px 28px;border-bottom:3px solid #00A2B0;}
+#view-mobile .eyebrow{font-size:9px;padding:3px 10px;margin-bottom:12px;}
+#view-mobile .hero-h1{color:#fff;font-size:24px;font-weight:900;line-height:1.15;margin:0 0 10px;letter-spacing:-0.5px;}
+#view-mobile .hero-h1 em{color:#F15B5C;font-style:normal;display:block;}
+#view-mobile .hero-sub{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin:0 0 16px;}
+#view-mobile .bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+#view-mobile .bullet{display:flex;align-items:flex-start;gap:8px;}
+#view-mobile .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+#view-mobile .bullet p{color:#fff;font-size:13px;font-weight:600;margin:0;}
+#view-mobile .testimonial{padding:12px 14px;background:rgba(0,162,176,0.15);border:1px solid rgba(0,162,176,0.35);border-radius:8px;}
+#view-mobile .t-label{color:#00A2B0;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin:0 0 5px;}
+#view-mobile .t-quote{color:#fff;font-size:12px;line-height:1.5;margin:0;}
+#view-mobile .t-attr{color:rgba(255,255,255,0.4);font-size:10px;margin:5px 0 0;}
+#view-mobile .form-section{background:#fff;padding:24px 20px 32px;}
+#view-mobile .welcome-label{color:#aaa;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px;}
+#view-mobile .form-title{color:#000;font-size:22px;font-weight:900;margin:0 0 4px;letter-spacing:-0.3px;}
+#view-mobile .form-sub{color:#555;font-size:13px;margin:0 0 20px;line-height:1.5;}
+#view-mobile .field-wrap{margin-bottom:12px;}
+#view-mobile .field-label{font-size:9px;}
+#view-mobile .field-input{padding:11px 12px;font-size:14px;}
+#view-mobile .forgot{text-align:right;margin-bottom:20px;}
+#view-mobile .forgot span{color:#F15B5C;font-size:12px;font-weight:600;cursor:pointer;}
+#view-mobile .cta-btn{font-size:14px;padding:13px;margin-bottom:12px;}
+#view-mobile .form-gap{margin-bottom:12px;}
+#view-mobile .form-gap2{margin-bottom:16px;}
+#view-mobile .google-btn{font-size:13px;padding:11px;margin-bottom:16px;}
+#view-mobile .signup-note{text-align:center;color:#555;font-size:12px;margin:0 0 14px;}
+#view-mobile .signup-note span{color:#F15B5C;font-weight:700;cursor:pointer;}
+#view-mobile .free-box{padding:12px 14px;}
+#view-mobile .free-box p{font-size:12px;}
+#view-mobile .free-box small{font-size:10px;}
+#view-mobile .nav-verb{font-size:7px;}
+#view-mobile .nav-word{font-size:11px;}
+#view-mobile .nav-item{padding:10px 4px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">login.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell">
+  <div class="top-nav">
+    <div class="logo"><div class="logo-icon"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text">DiagnoseThis<span>.com</span></span></div>
+    <div class="nav-link">New here? <strong>Join the rebellion →</strong></div>
+  </div>
+  <div class="banner"><span class="banner-text">They called it care. We call it gaslighting. <em>Don't google it — ask WHY.</em></span><button class="banner-btn">Join the movement →</button></div>
+  <div class="body-split">
+    <div class="left-panel">
+      <div>
+        <div class="eyebrow">Built by clinicians. Powered by rebellion.</div>
+        <h1 class="hero-h1">You were never the problem.<em>You were the proof.</em></h1>
+        <p class="hero-sub">For every woman labeled crazy. For every man told to tough it out. DiagnoseThis gives you the WHY they refused to find.</p>
+        <div class="bullets">
+          <div class="bullet"><div class="dot" style="background:#F15B5C;"></div><p>3 real explanations in seconds — no jargon</p></div>
+          <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Powered by Dr. Z &amp; real clinical experts</p></div>
+          <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Join thousands rewriting what healthcare missed</p></div>
+        </div>
+        <div class="testimonial"><p class="t-label">The revolution is live</p><p class="t-quote">"I had 27 normal labs and a life that didn't feel normal. Turns out it wasn't in my head — it was in my bloodwork."</p><p class="t-attr">— Amira, The Believer</p></div>
+      </div>
+      <div class="char-area">
+        <div class="char-frame"><svg width="150" height="210" viewBox="0 0 160 220" fill="none"><text x="80" y="14" text-anchor="middle" fill="#555" font-size="9" font-style="italic">image placeholder</text><ellipse cx="80" cy="55" rx="38" ry="44" fill="rgba(0,162,176,0.12)" stroke="#00A2B0" stroke-width="1.5"/><circle cx="80" cy="52" r="28" fill="rgba(0,162,176,0.18)"/><circle cx="70" cy="56" r="4" fill="#fff"/><circle cx="90" cy="56" r="4" fill="#fff"/><path d="M68 72 Q80 82 92 72" stroke="#F15B5C" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M55 110 Q80 95 105 110 L115 160 Q80 175 45 160 Z" fill="rgba(0,162,176,0.1)"/><path d="M45 160 Q30 185 35 220" stroke="#333" stroke-width="8" stroke-linecap="round"/><path d="M115 160 Q130 185 125 220" stroke="#333" stroke-width="8" stroke-linecap="round"/><path d="M58 115 L38 148 M102 115 L122 148" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round"/></svg></div>
+        <div class="bubble-wrap"><div class="bubble-inner"><p>"I deserve answers."</p><p>And "you're fine" was never the truth.</p></div></div>
+      </div>
+    </div>
+    <div class="right-panel">
+      <p class="welcome-label">Welcome back</p>
+      <h2 class="form-title">Sign back in.</h2>
+      <p class="form-sub">Your WHYs are waiting.<br/>The revolution doesn't stop.</p>
+      <div class="field-wrap"><label class="field-label">Email</label><input class="field-input" type="email" placeholder="you@example.com"/></div>
+      <div class="field-wrap"><label class="field-label">Password</label><input class="field-input" type="password" placeholder="Enter password"/></div>
+      <div class="forgot"><span>Forgot password?</span></div>
+      <button class="cta-btn" style="margin-bottom:14px;">Sign in — get your WHY →</button>
+      <div class="divider form-gap"><div class="divider-line"></div><span>or</span><div class="divider-line"></div></div>
+      <button class="google-btn form-gap2">Continue with Google</button>
+      <p class="signup-note">No account yet? <span>Join the rebellion — it's free →</span></p>
+      <div class="free-box"><p>First WHY is on us.</p><small>No credit card. No catch. Just answers.</small></div>
+    </div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">login.html · Mockup 4 — Split dark · Coral + Teal · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet">
+<div class="shell">
+  <div class="top-nav">
+    <div class="logo"><div class="logo-icon"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div>
+    <div class="nav-link" style="font-size:12px;">New here? <strong>Join the rebellion →</strong></div>
+  </div>
+  <div class="banner"><span class="banner-text">They called it care. We call it gaslighting. <em>Don't google it — ask WHY.</em></span><button class="banner-btn">Join the movement →</button></div>
+  <div class="hero-section">
+    <div class="eyebrow">Built by clinicians. Powered by rebellion.</div>
+    <h1 class="hero-h1">You were never the problem.<em>You were the proof.</em></h1>
+    <p class="hero-sub">For every woman labeled crazy. For every man told to tough it out. DiagnoseThis gives you the WHY they refused to find.</p>
+    <div class="bullets">
+      <div class="bullet"><div class="dot" style="background:#F15B5C;"></div><p>3 real explanations in seconds — no jargon</p></div>
+      <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Powered by Dr. Z &amp; real clinical experts</p></div>
+      <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Join thousands rewriting what healthcare missed</p></div>
+    </div>
+    <div class="testimonial"><p class="t-label">The revolution is live</p><p class="t-quote">"I had 27 normal labs and a life that didn't feel normal. Turns out it wasn't in my head — it was in my bloodwork."</p><p class="t-attr">— Amira, The Believer</p></div>
+  </div>
+  <div class="form-section">
+    <p class="welcome-label">Welcome back</p>
+    <h2 class="form-title">Sign back in.</h2>
+    <p class="form-sub">Your WHYs are waiting. The revolution doesn't stop.</p>
+    <div class="field-wrap"><label class="field-label">Email</label><input class="field-input" type="email" placeholder="you@example.com"/></div>
+    <div class="field-wrap"><label class="field-label">Password</label><input class="field-input" type="password" placeholder="Enter password"/></div>
+    <div class="forgot"><span>Forgot password?</span></div>
+    <button class="cta-btn" style="margin-bottom:14px;">Sign in — get your WHY →</button>
+    <div class="divider form-gap"><div class="divider-line"></div><span>or</span><div class="divider-line"></div></div>
+    <button class="google-btn form-gap2">Continue with Google</button>
+    <p class="signup-note">No account yet? <span>Join the rebellion — it's free →</span></p>
+    <div class="free-box"><p>First WHY is on us.</p><small>No credit card. No catch. Just answers.</small></div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">login.html · Tablet 768px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile">
+<div class="shell">
+  <div class="top-nav">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:14px;">DiagnoseThis<span>.com</span></span></div>
+    <div class="nav-link" style="font-size:11px;">New here? <strong>Join →</strong></div>
+  </div>
+  <div class="banner" style="background:#F15B5C;padding:8px 16px;text-align:center;">
+    <span class="banner-text">They called it care. We call it gaslighting. <em>Ask WHY.</em></span>
+    <button class="banner-btn">Join the movement →</button>
+  </div>
+  <div class="hero-section">
+    <div class="eyebrow">Built by clinicians. Powered by rebellion.</div>
+    <h1 class="hero-h1">You were never the problem.<em>You were the proof.</em></h1>
+    <p class="hero-sub">DiagnoseThis gives you the WHY they refused to find.</p>
+    <div class="bullets">
+      <div class="bullet"><div class="dot" style="background:#F15B5C;"></div><p>3 real explanations — no jargon</p></div>
+      <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Powered by Dr. Z &amp; clinical experts</p></div>
+      <div class="bullet"><div class="dot" style="background:#00A2B0;"></div><p>Join thousands rewriting healthcare</p></div>
+    </div>
+    <div class="testimonial"><p class="t-label">The revolution is live</p><p class="t-quote">"27 normal labs. My life still didn't feel normal. Turns out it wasn't in my head."</p><p class="t-attr">— Amira, The Believer</p></div>
+  </div>
+  <div class="form-section">
+    <p class="welcome-label">Welcome back</p>
+    <h2 class="form-title">Sign back in.</h2>
+    <p class="form-sub">Your WHYs are waiting. The revolution doesn't stop.</p>
+    <div class="field-wrap"><label class="field-label">Email</label><input class="field-input" type="email" placeholder="you@example.com"/></div>
+    <div class="field-wrap"><label class="field-label">Password</label><input class="field-input" type="password" placeholder="Enter password"/></div>
+    <div class="forgot"><span>Forgot password?</span></div>
+    <button class="cta-btn" style="margin-bottom:12px;">Sign in — get your WHY →</button>
+    <div class="divider" style="margin-bottom:12px;"><div class="divider-line"></div><span>or</span><div class="divider-line"></div></div>
+    <button class="google-btn" style="margin-bottom:16px;">Continue with Google</button>
+    <p class="signup-note">No account yet? <span>Join free →</span></p>
+    <div class="free-box"><p>First WHY is on us.</p><small>No credit card. No catch. Just answers.</small></div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">login.html · Mobile 375px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
