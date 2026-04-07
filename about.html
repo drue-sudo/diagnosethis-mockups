@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — About Us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+/* shared */
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:30px;height:30px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{color:#fff;font-size:17px;font-weight:800;letter-spacing:-0.3px;}
+.logo-text span{color:#F15B5C;}
+.top-nav-white{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #eee;}
+.logo-text-dark{color:#000;font-size:17px;font-weight:800;letter-spacing:-0.3px;}
+.logo-text-dark span{color:#F15B5C;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{color:#333;font-size:14px;font-weight:500;text-decoration:none;}
+.nav-links a:hover{color:#F15B5C;}
+.nav-cta{background:#F15B5C;color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;text-decoration:none;border:none;cursor:pointer;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-item:first-child{background:rgba(0,162,176,0.15);}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.nav-item:first-child .nav-word{color:#00A2B0;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+.section{padding:64px 80px;}
+.section-sm{padding:48px 80px;}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-coral{display:inline-block;background:#F15B5C;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.page-footer{background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.footer-brand p{color:rgba(255,255,255,0.4);font-size:12px;margin-top:8px;max-width:260px;line-height:1.6;}
+.footer-col h4{color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;}
+.footer-col a:hover{color:#00A2B0;}
+.footer-bottom{background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{color:rgba(255,255,255,0.3);font-size:11px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">about.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <!-- NAV -->
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <div class="logo"><div class="logo-icon"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text">DiagnoseThis<span>.com</span></span></div>
+    <div class="nav-links"><a href="#">Home</a><a href="#">About</a><a href="#">Contact</a><a href="#" class="nav-cta">Sign in</a></div>
+  </div>
+  <!-- HERO -->
+  <div style="background:#111;padding:80px 80px 64px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">About DiagnoseThis</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;max-width:700px;margin-bottom:20px;">This exists because<br/>something was <span style="color:#F15B5C;">missing.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:560px;">Not more information. Not more opinions. Not more noise. <strong style="color:#fff;">Clarity.</strong></p>
+  </div>
+  <!-- BODY -->
+  <div class="section" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+    <div>
+      <div class="eyebrow">The gap no one talks about</div>
+      <h2 style="font-size:28px;font-weight:900;color:#000;margin-bottom:16px;letter-spacing:-0.5px;">Most people don't start in a doctor's office.</h2>
+      <p style="color:#555;font-size:16px;line-height:1.75;margin-bottom:20px;">Something feels off. They look for answers. And then they hear: <em>"Everything looks normal."</em> But their life doesn't feel normal.</p>
+      <p style="color:#555;font-size:16px;line-height:1.75;">That gap — between "nothing dangerous showed up" and "I still don't feel okay" — is where people begin to doubt themselves. <strong style="color:#000;">DiagnoseThis closes that gap.</strong></p>
+    </div>
+    <div style="background:#111;border-radius:12px;padding:32px;border-left:3px solid #F15B5C;">
+      <p style="color:#F15B5C;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">You're not broken</p>
+      <p style="color:#fff;font-size:16px;line-height:1.75;margin-bottom:16px;">Most systems are built for speed. Symptoms get separated. Stories get shortened. Anything that doesn't fit clean criteria gets labeled "fine."</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.75;">But "fine" isn't an explanation. And it's not a plan. <strong style="color:#fff;">You don't need more guessing. You need structure.</strong></p>
+    </div>
+  </div>
+  <!-- WHAT IT IS -->
+  <div style="background:#f8f8f8;padding:64px 80px;border-top:1px solid #eee;">
+    <div class="eyebrow" style="margin-bottom:8px;">What this actually is</div>
+    <h2 style="font-size:32px;font-weight:900;color:#000;margin-bottom:12px;letter-spacing:-0.5px;">DiagnoseThis doesn't diagnose conditions.<br/>It does something different.</h2>
+    <p style="color:#555;font-size:16px;margin-bottom:40px;">It organizes, recognizes, and prepares — so you can show up informed.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="background:#fff;border-radius:12px;padding:28px;border-top:3px solid #F15B5C;">
+        <div style="width:40px;height:40px;background:#fff0f0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3 style="font-size:18px;font-weight:800;color:#000;margin-bottom:8px;">Organize</h3>
+        <p style="color:#555;font-size:14px;line-height:1.7;">Organize what you're experiencing into something structured and readable.</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:28px;border-top:3px solid #00A2B0;">
+        <div style="width:40px;height:40px;background:#e8f8f9;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#00A2B0" stroke-width="1.5"/><path d="M21 21l-4.35-4.35" stroke="#00A2B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3 style="font-size:18px;font-weight:800;color:#000;margin-bottom:8px;">Recognize</h3>
+        <p style="color:#555;font-size:14px;line-height:1.7;">Recognize patterns across your symptoms that a quick appointment might miss.</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:28px;border-top:3px solid #000;">
+        <div style="width:40px;height:40px;background:#f0f0f0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 12h8M8 8h8M8 16h5" stroke="#000" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#000" stroke-width="1.5"/></svg></div>
+        <h3 style="font-size:18px;font-weight:800;color:#000;margin-bottom:8px;">Ask better</h3>
+        <p style="color:#555;font-size:14px;line-height:1.7;">Prepare for real conversations with real providers — questions they can't ignore.</p>
+      </div>
+    </div>
+  </div>
+  <!-- PLANS -->
+  <div class="section">
+    <div class="eyebrow" style="margin-bottom:8px;">Our plans</div>
+    <h2 style="font-size:32px;font-weight:900;color:#000;margin-bottom:40px;letter-spacing:-0.5px;">Choose the level of clarity that's right for you.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="border:2px solid #eee;border-radius:12px;padding:28px;">
+        <p style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Ask WHY</p>
+        <p style="font-size:28px;font-weight:900;color:#000;margin-bottom:4px;">Free</p>
+        <p style="color:#555;font-size:14px;margin-bottom:20px;">3 possible explanations for your health questions. Free forever.</p>
+        <a href="#" style="display:block;text-align:center;padding:10px;border:2px solid #000;border-radius:8px;color:#000;font-size:13px;font-weight:700;text-decoration:none;">Get started free</a>
+      </div>
+      <div style="border:2px solid #00A2B0;border-radius:12px;padding:28px;position:relative;">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap;">Popular</div>
+        <p style="font-size:13px;font-weight:700;color:#00A2B0;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">See WHY</p>
+        <p style="font-size:28px;font-weight:900;color:#000;margin-bottom:4px;">$9<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></p>
+        <p style="color:#555;font-size:14px;margin-bottom:20px;">Pattern analysis, suggested labs, and a downloadable PDF report.</p>
+        <a href="#" style="display:block;text-align:center;padding:10px;background:#00A2B0;border-radius:8px;color:#fff;font-size:13px;font-weight:700;text-decoration:none;border:2px solid #00A2B0;">Upgrade to See WHY</a>
+      </div>
+      <div style="border:2px solid #F15B5C;border-radius:12px;padding:28px;">
+        <p style="font-size:13px;font-weight:700;color:#F15B5C;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">The WHY</p>
+        <p style="font-size:28px;font-weight:900;color:#000;margin-bottom:4px;">$19<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></p>
+        <p style="color:#555;font-size:14px;margin-bottom:20px;">Complete clinical reasoning, actionable steps, and a provider script.</p>
+        <a href="#" style="display:block;text-align:center;padding:10px;background:#F15B5C;border-radius:8px;color:#fff;font-size:13px;font-weight:700;text-decoration:none;border:2px solid #F15B5C;">Upgrade to The WHY</a>
+      </div>
+    </div>
+  </div>
+  <!-- LEADERSHIP -->
+  <div style="background:#111;padding:64px 80px;border-top:3px solid #00A2B0;">
+    <div class="eyebrow" style="margin-bottom:8px;">Leadership</div>
+    <h2 style="color:#fff;font-size:32px;font-weight:900;margin-bottom:40px;letter-spacing:-0.5px;">Built by people who've seen the gap up close.</h2>
+    <div style="display:flex;align-items:center;gap:32px;max-width:560px;">
+      <div style="width:72px;height:72px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div>
+        <p style="color:#fff;font-size:18px;font-weight:800;margin-bottom:4px;">Dr. Z</p>
+        <p style="color:#00A2B0;font-size:13px;font-weight:600;margin-bottom:8px;">Founder &amp; CEO</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Functional medicine physician focused on helping people understand patterns, not just chase symptoms.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;">
+      <div style="border-left:3px solid #F15B5C;padding-left:16px;"><p style="color:#F15B5C;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Truth over reassurance</p><p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">We don't tell you you're fine. We help you understand why.</p></div>
+      <div style="border-left:3px solid #00A2B0;padding-left:16px;"><p style="color:#00A2B0;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Clarity over complexity</p><p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Plain language. Real patterns. No spiraling.</p></div>
+      <div style="border-left:3px solid #fff;padding-left:16px;"><p style="color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Humanity over systems</p><p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Built from lived experience and real-world gaps.</p></div>
+    </div>
+  </div>
+  <!-- CTA -->
+  <div style="background:#F15B5C;padding:60px 80px;text-align:center;">
+    <h2 style="color:#fff;font-size:36px;font-weight:900;margin-bottom:12px;letter-spacing:-0.5px;">You're not crazy. You're early.</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:18px;margin-bottom:32px;">And this is where early people start to make sense of things.</p>
+    <a href="#" style="display:inline-block;background:#000;color:#fff;font-size:15px;font-weight:800;padding:14px 32px;border-radius:8px;text-decoration:none;">Ask your first WHY — it's free →</a>
+  </div>
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div class="footer-brand"><div class="logo"><div class="logo-icon"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div class="footer-col"><h4>Quick links</h4><a href="#">Home</a><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy policy</a></div>
+    <div class="footer-col"><h4>Plans</h4><a href="#">Ask WHY (Free)</a><a href="#">See WHY</a><a href="#">The WHY</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">support@diagnosethis.com</a><a href="#" style="color:#F15B5C;font-size:11px;">[Address — flag for Dr. Z] ⚑</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 The Dr Z Functional Medicine Clinic, LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">about.html · Desktop 1920px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div>
+    <div style="display:flex;gap:16px;align-items:center;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Home</a><a href="#" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">About</a><a href="#" class="nav-cta" style="font-size:12px;padding:6px 14px;">Sign in</a></div>
+  </div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">About DiagnoseThis</div>
+    <h1 style="color:#fff;font-size:34px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:16px;">This exists because something was <span style="color:#F15B5C;">missing.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;">Not more information. Not more opinions. <strong style="color:#fff;">Clarity.</strong></p>
+  </div>
+  <div style="padding:40px;background:#fff;">
+    <div class="eyebrow">The gap no one talks about</div>
+    <h2 style="font-size:22px;font-weight:900;color:#000;margin:12px 0 12px;letter-spacing:-0.3px;">Most people don't start in a doctor's office.</h2>
+    <p style="color:#555;font-size:15px;line-height:1.75;margin-bottom:16px;">Something feels off. They look for answers. And then they hear: <em>"Everything looks normal."</em> But their life doesn't feel normal.</p>
+    <div style="background:#111;border-radius:10px;padding:24px;border-left:3px solid #F15B5C;margin-bottom:32px;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">You're not broken</p>
+      <p style="color:#fff;font-size:14px;line-height:1.7;">"Fine" isn't an explanation. And it's not a plan. <strong>You don't need more guessing. You need structure.</strong></p>
+    </div>
+    <div class="eyebrow" style="margin-bottom:12px;">What this actually is</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #F15B5C;"><h3 style="font-size:16px;font-weight:800;margin-bottom:6px;">Organize</h3><p style="color:#555;font-size:13px;line-height:1.6;">Structure what you're experiencing into something readable.</p></div>
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #00A2B0;"><h3 style="font-size:16px;font-weight:800;margin-bottom:6px;">Recognize</h3><p style="color:#555;font-size:13px;line-height:1.6;">Spot patterns a quick appointment might miss.</p></div>
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #000;grid-column:1/-1;"><h3 style="font-size:16px;font-weight:800;margin-bottom:6px;">Ask better</h3><p style="color:#555;font-size:13px;line-height:1.6;">Prepare questions your provider can't ignore.</p></div>
+    </div>
+    <div class="eyebrow" style="margin-bottom:16px;">Leadership</div>
+    <div style="display:flex;align-items:center;gap:20px;background:#111;border-radius:10px;padding:20px;margin-bottom:32px;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div><p style="color:#fff;font-size:16px;font-weight:800;margin-bottom:2px;">Dr. Z</p><p style="color:#00A2B0;font-size:12px;font-weight:600;margin-bottom:6px;">Founder &amp; CEO</p><p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.5;">Functional medicine physician focused on helping people understand patterns, not just chase symptoms.</p></div>
+    </div>
+  </div>
+  <div style="background:#F15B5C;padding:40px;text-align:center;">
+    <h2 style="color:#fff;font-size:26px;font-weight:900;margin-bottom:10px;">You're not crazy. You're early.</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:15px;margin-bottom:24px;">This is where early people start to make sense of things.</p>
+    <a href="#" style="display:inline-block;background:#000;color:#fff;font-size:14px;font-weight:800;padding:12px 28px;border-radius:8px;text-decoration:none;">Ask your first WHY — it's free →</a>
+  </div>
+  <div style="background:#111;padding:32px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><div class="logo" style="margin-bottom:8px;"><div class="logo-icon" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:13px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:11px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">about.html · Tablet 768px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:14px;">DiagnoseThis<span>.com</span></span></div>
+    <a href="#" class="nav-cta" style="font-size:11px;padding:6px 12px;">Sign in</a>
+  </div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral" style="font-size:9px;padding:3px 10px;">About DiagnoseThis</div>
+    <h1 style="color:#fff;font-size:26px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">This exists because something was <span style="color:#F15B5C;">missing.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.65;">Not more information. Not more noise. <strong style="color:#fff;">Clarity.</strong></p>
+  </div>
+  <div style="padding:24px 20px;background:#fff;">
+    <div class="eyebrow" style="font-size:9px;padding:3px 10px;margin-bottom:10px;">The gap no one talks about</div>
+    <h2 style="font-size:18px;font-weight:900;color:#000;margin-bottom:10px;">Most people don't start in a doctor's office.</h2>
+    <p style="color:#555;font-size:14px;line-height:1.7;margin-bottom:16px;">Something feels off. They search. Then they hear: <em>"Everything looks normal."</em> But life doesn't feel normal. That gap is where people start to doubt themselves.</p>
+    <div style="background:#111;border-radius:8px;padding:16px;border-left:3px solid #F15B5C;margin-bottom:24px;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">You're not broken</p>
+      <p style="color:#fff;font-size:13px;line-height:1.6;">"Fine" isn't an explanation. <strong>You need structure, not more guessing.</strong></p>
+    </div>
+    <div class="eyebrow" style="font-size:9px;padding:3px 10px;margin-bottom:12px;">What this actually is</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #F15B5C;"><h3 style="font-size:15px;font-weight:800;margin-bottom:4px;">Organize</h3><p style="color:#555;font-size:13px;line-height:1.5;">Structure what you're experiencing.</p></div>
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #00A2B0;"><h3 style="font-size:15px;font-weight:800;margin-bottom:4px;">Recognize</h3><p style="color:#555;font-size:13px;line-height:1.5;">Spot patterns appointments miss.</p></div>
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #000;"><h3 style="font-size:15px;font-weight:800;margin-bottom:4px;">Ask better</h3><p style="color:#555;font-size:13px;line-height:1.5;">Questions your provider can't ignore.</p></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;background:#111;border-radius:8px;padding:16px;margin-bottom:0;">
+      <div style="width:48px;height:48px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div><p style="color:#fff;font-size:15px;font-weight:800;margin-bottom:2px;">Dr. Z — Founder &amp; CEO</p><p style="color:rgba(255,255,255,0.6);font-size:12px;line-height:1.5;">Functional medicine physician focused on patterns, not just symptoms.</p></div>
+    </div>
+  </div>
+  <div style="background:#F15B5C;padding:28px 20px;text-align:center;">
+    <h2 style="color:#fff;font-size:22px;font-weight:900;margin-bottom:8px;">You're not crazy. You're early.</h2>
+    <p style="color:rgba(255,255,255,0.85);font-size:13px;margin-bottom:20px;">This is where early people start to make sense of things.</p>
+    <a href="#" style="display:inline-block;background:#000;color:#fff;font-size:13px;font-weight:800;padding:12px 24px;border-radius:8px;text-decoration:none;">Ask your first WHY — free →</a>
+  </div>
+  <div style="background:#111;padding:24px 20px;">
+    <p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:12px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p>
+    <div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">about.html · Mobile 375px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
