@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Contact Us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:30px;height:30px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{color:#fff;font-size:17px;font-weight:800;letter-spacing:-0.3px;}
+.logo-text span{color:#F15B5C;}
+.nav-cta{background:#F15B5C;color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-coral{display:inline-block;background:#F15B5C;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.field-label{display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:7px;}
+.field-input{width:100%;background:#fff;border:2px solid #000;border-radius:8px;padding:12px 14px;color:#333;font-size:14px;outline:none;font-family:inherit;}
+.field-input:focus{border-color:#00A2B0;}
+.field-textarea{width:100%;background:#fff;border:2px solid #000;border-radius:8px;padding:12px 14px;color:#333;font-size:14px;outline:none;font-family:inherit;resize:vertical;min-height:140px;}
+.field-textarea:focus{border-color:#00A2B0;}
+.field-wrap{margin-bottom:16px;}
+.submit-btn{width:100%;background:#F15B5C;border:none;border-radius:8px;padding:14px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;}
+.submit-btn:hover{background:#d94f50;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-item:first-child{background:rgba(0,162,176,0.15);}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.nav-item:first-child .nav-word{color:#00A2B0;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+.page-footer{background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.footer-col h4{color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;}
+.footer-bottom{background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{color:rgba(255,255,255,0.3);font-size:11px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">contact.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <div class="logo"><div class="logo-icon"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text">DiagnoseThis<span>.com</span></span></div>
+    <div style="display:flex;align-items:center;gap:24px;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Home</a><a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">About</a><a href="#" style="color:#fff;font-size:14px;text-decoration:none;font-weight:600;">Contact</a><button class="nav-cta">Sign in</button></div>
+  </div>
+  <!-- HERO -->
+  <div style="background:#111;padding:72px 80px 60px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Get in touch</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;">We're here to <span style="color:#F15B5C;">help.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:520px;">Have a question about our services, your account, or just want to say hello? Our team usually responds within 24 hours.</p>
+  </div>
+  <!-- BODY SPLIT -->
+  <div style="display:grid;grid-template-columns:1fr 420px;gap:0;min-height:560px;">
+    <!-- LEFT: form -->
+    <div style="padding:56px 64px;border-right:1px solid #eee;">
+      <h2 style="font-size:24px;font-weight:900;color:#000;margin-bottom:6px;letter-spacing:-0.3px;">Send us a message</h2>
+      <p style="color:#888;font-size:14px;margin-bottom:32px;">We usually respond within 24 hours.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="field-wrap"><label class="field-label">Your name</label><input class="field-input" type="text" placeholder="Jane Smith"/></div>
+        <div class="field-wrap"><label class="field-label">Email address</label><input class="field-input" type="email" placeholder="you@example.com"/></div>
+      </div>
+      <div class="field-wrap"><label class="field-label">Subject</label><input class="field-input" type="text" placeholder="How can we help?"/></div>
+      <div class="field-wrap"><label class="field-label">Message</label><textarea class="field-textarea" placeholder="Tell us what's on your mind..."></textarea></div>
+      <button class="submit-btn">Send message →</button>
+    </div>
+    <!-- RIGHT: contact cards -->
+    <div style="background:#f8f8f8;padding:56px 48px;display:flex;flex-direction:column;gap:24px;justify-content:flex-start;">
+      <div style="background:#fff;border-radius:12px;padding:24px;border-top:3px solid #F15B5C;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#fff0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#F15B5C" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <h3 style="font-size:15px;font-weight:800;color:#000;">Email us</h3>
+        </div>
+        <p style="color:#888;font-size:13px;margin-bottom:6px;">For general inquiries and support.</p>
+        <a href="mailto:support@diagnosethis.com" style="color:#F15B5C;font-size:14px;font-weight:700;text-decoration:none;">support@diagnosethis.com</a>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:24px;border-top:3px solid #00A2B0;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#e8f8f9;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#00A2B0" stroke-width="1.5"/></svg></div>
+          <h3 style="font-size:15px;font-weight:800;color:#000;">Call us</h3>
+        </div>
+        <p style="color:#888;font-size:13px;margin-bottom:6px;">Mon–Fri from 8am to 5pm.</p>
+        <p style="color:#F15B5C;font-size:12px;font-weight:600;">[Phone — flag for Dr. Z] ⚑</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:24px;border-top:3px solid #000;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#000" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#000" stroke-width="1.5"/></svg></div>
+          <h3 style="font-size:15px;font-weight:800;color:#000;">Visit us</h3>
+        </div>
+        <p style="color:#888;font-size:13px;margin-bottom:6px;">Come say hello at our office.</p>
+        <p style="color:#F15B5C;font-size:12px;font-weight:600;">[Address — flag for Dr. Z] ⚑</p>
+      </div>
+      <div style="background:#111;border-radius:12px;padding:24px;border-top:3px solid #00A2B0;">
+        <p style="color:#00A2B0;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">DT Community</p>
+        <h3 style="color:#fff;font-size:15px;font-weight:800;margin-bottom:6px;">Join for live support</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:14px;">Real-time answers from practitioners and members.</p>
+        <a href="#" style="display:inline-block;background:#00A2B0;color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;text-decoration:none;">Join the DT Community →</a>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div><div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;max-width:240px;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div class="footer-col"><h4>Quick links</h4><a href="#">Home</a><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy policy</a></div>
+    <div class="footer-col"><h4>Plans</h4><a href="#">Ask WHY (Free)</a><a href="#">See WHY</a><a href="#">The WHY</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">support@diagnosethis.com</a><a href="#" style="color:#F15B5C;font-size:11px;">[Address — flag for Dr. Z] ⚑</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 The Dr Z Functional Medicine Clinic, LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">contact.html · Desktop 1920px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div>
+    <div style="display:flex;gap:16px;align-items:center;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">Home</a><a href="#" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">About</a><button class="nav-cta" style="font-size:12px;padding:6px 14px;">Sign in</button></div>
+  </div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Get in touch</div>
+    <h1 style="color:#fff;font-size:34px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:14px;">We're here to <span style="color:#F15B5C;">help.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;max-width:480px;">Have a question? Our team usually responds within 24 hours.</p>
+  </div>
+  <div style="padding:40px;">
+    <h2 style="font-size:20px;font-weight:900;color:#000;margin-bottom:6px;">Send us a message</h2>
+    <p style="color:#888;font-size:14px;margin-bottom:24px;">We usually respond within 24 hours.</p>
+    <div class="field-wrap"><label class="field-label">Your name</label><input class="field-input" type="text" placeholder="Jane Smith"/></div>
+    <div class="field-wrap"><label class="field-label">Email address</label><input class="field-input" type="email" placeholder="you@example.com"/></div>
+    <div class="field-wrap"><label class="field-label">Subject</label><input class="field-input" type="text" placeholder="How can we help?"/></div>
+    <div class="field-wrap"><label class="field-label">Message</label><textarea class="field-textarea" placeholder="Tell us what's on your mind..."></textarea></div>
+    <button class="submit-btn" style="margin-bottom:32px;">Send message →</button>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #F15B5C;"><h3 style="font-size:14px;font-weight:800;margin-bottom:4px;">Email us</h3><a href="mailto:support@diagnosethis.com" style="color:#F15B5C;font-size:12px;font-weight:700;text-decoration:none;">support@diagnosethis.com</a></div>
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #00A2B0;"><h3 style="font-size:14px;font-weight:800;margin-bottom:4px;">Call us</h3><p style="color:#F15B5C;font-size:11px;font-weight:600;">[Phone — flag for Dr. Z] ⚑</p></div>
+      <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #000;"><h3 style="font-size:14px;font-weight:800;margin-bottom:4px;">Visit us</h3><p style="color:#F15B5C;font-size:11px;font-weight:600;">[Address — flag for Dr. Z] ⚑</p></div>
+      <div style="background:#111;border-radius:10px;padding:20px;border-top:3px solid #00A2B0;"><p style="color:#00A2B0;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">DT Community</p><a href="#" style="color:#fff;font-size:12px;font-weight:700;text-decoration:none;">Join for live support →</a></div>
+    </div>
+  </div>
+  <div style="background:#111;padding:28px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><div class="logo" style="margin-bottom:8px;"><div class="logo-icon" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:13px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:11px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Privacy</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">contact.html · Tablet 768px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:14px;">DiagnoseThis<span>.com</span></span></div>
+    <button class="nav-cta" style="font-size:11px;padding:6px 12px;">Sign in</button>
+  </div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow" style="font-size:9px;padding:3px 10px;">Get in touch</div>
+    <h1 style="color:#fff;font-size:26px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">We're here to <span style="color:#F15B5C;">help.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.65;">Have a question? Our team responds within 24 hours.</p>
+  </div>
+  <div style="padding:24px 20px;">
+    <h2 style="font-size:18px;font-weight:900;color:#000;margin-bottom:6px;">Send us a message</h2>
+    <p style="color:#888;font-size:13px;margin-bottom:20px;">We usually respond within 24 hours.</p>
+    <div class="field-wrap" style="margin-bottom:12px;"><label class="field-label" style="font-size:9px;">Your name</label><input class="field-input" style="padding:11px 12px;" type="text" placeholder="Jane Smith"/></div>
+    <div class="field-wrap" style="margin-bottom:12px;"><label class="field-label" style="font-size:9px;">Email address</label><input class="field-input" style="padding:11px 12px;" type="email" placeholder="you@example.com"/></div>
+    <div class="field-wrap" style="margin-bottom:12px;"><label class="field-label" style="font-size:9px;">Subject</label><input class="field-input" style="padding:11px 12px;" type="text" placeholder="How can we help?"/></div>
+    <div class="field-wrap" style="margin-bottom:12px;"><label class="field-label" style="font-size:9px;">Message</label><textarea class="field-textarea" style="min-height:120px;padding:11px 12px;font-size:14px;" placeholder="Tell us what's on your mind..."></textarea></div>
+    <button class="submit-btn" style="font-size:14px;padding:13px;margin-bottom:24px;">Send message →</button>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #F15B5C;"><h3 style="font-size:14px;font-weight:800;margin-bottom:3px;">Email us</h3><a href="mailto:support@diagnosethis.com" style="color:#F15B5C;font-size:12px;font-weight:700;text-decoration:none;">support@diagnosethis.com</a></div>
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #00A2B0;"><h3 style="font-size:14px;font-weight:800;margin-bottom:3px;">Call us</h3><p style="color:#F15B5C;font-size:11px;font-weight:600;">[Phone — flag for Dr. Z] ⚑</p></div>
+      <div style="background:#f8f8f8;border-radius:8px;padding:16px;border-left:3px solid #000;"><h3 style="font-size:14px;font-weight:800;margin-bottom:3px;">Visit us</h3><p style="color:#F15B5C;font-size:11px;font-weight:600;">[Address — flag for Dr. Z] ⚑</p></div>
+      <div style="background:#111;border-radius:8px;padding:16px;border-left:3px solid #00A2B0;"><p style="color:#00A2B0;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">DT Community</p><a href="#" style="color:#fff;font-size:13px;font-weight:700;text-decoration:none;">Join for live support →</a></div>
+    </div>
+  </div>
+  <div style="background:#111;padding:24px 20px;">
+    <p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:12px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p>
+    <div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">contact.html · Mobile 375px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
