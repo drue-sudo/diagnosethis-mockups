@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Help & FAQ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:30px;height:30px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{color:#fff;font-size:17px;font-weight:800;letter-spacing:-0.3px;}
+.logo-text span{color:#F15B5C;}
+.nav-cta{background:#F15B5C;color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-item:first-child{background:rgba(0,162,176,0.15);}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.nav-item:first-child .nav-word{color:#00A2B0;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+/* accordion */
+.acc-item{border-bottom:1px solid #eee;}
+.acc-trigger{width:100%;background:none;border:none;padding:20px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:inherit;text-align:left;}
+.acc-trigger h3{font-size:16px;font-weight:700;color:#000;}
+.acc-icon{width:28px;height:28px;border-radius:50%;border:2px solid #000;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.2s;}
+.acc-icon.open{transform:rotate(45deg);border-color:#F15B5C;background:#F15B5C;}
+.acc-icon svg path{stroke:#000;}
+.acc-icon.open svg path{stroke:#fff;}
+.acc-body{display:none;padding:0 0 20px;}
+.acc-body.open{display:block;}
+.acc-body p{color:#555;font-size:14px;line-height:1.75;}
+.acc-body strong{color:#000;}
+.page-footer{background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.footer-col h4{color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;}
+.footer-bottom{background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{color:rgba(255,255,255,0.3);font-size:11px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">faq.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <div class="logo"><div class="logo-icon"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text">DiagnoseThis<span>.com</span></span></div>
+    <div style="display:flex;align-items:center;gap:24px;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Home</a><a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">About</a><a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Contact</a><button class="nav-cta">Sign in</button></div>
+  </div>
+  <div style="background:#111;padding:72px 80px 60px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Help & FAQ</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;">Everything you need to <span style="color:#F15B5C;">know.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:520px;">About DiagnoseThis — how it works, what it costs, and what it's not.</p>
+  </div>
+  <!-- FAQ BODY -->
+  <div style="display:grid;grid-template-columns:280px 1fr;gap:0;min-height:600px;">
+    <!-- sidebar -->
+    <div style="background:#f8f8f8;padding:40px 32px;border-right:1px solid #eee;">
+      <p style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Categories</p>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <button onclick="filterFaq('all',this)" style="background:#000;color:#fff;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">All questions</button>
+        <button onclick="filterFaq('general',this)" style="background:none;color:#333;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">General</button>
+        <button onclick="filterFaq('how',this)" style="background:none;color:#333;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">How it works</button>
+        <button onclick="filterFaq('plans',this)" style="background:none;color:#333;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">Plans & pricing</button>
+        <button onclick="filterFaq('privacy',this)" style="background:none;color:#333;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">Privacy & security</button>
+        <button onclick="filterFaq('account',this)" style="background:none;color:#333;border:none;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;font-family:inherit;">Account</button>
+      </div>
+    </div>
+    <!-- accordion -->
+    <div style="padding:40px 56px;" id="faq-list">
+      <div class="acc-item" data-cat="general">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>What is DiagnoseThis?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>DiagnoseThis helps you understand what your body may be trying to say — before you're dismissed, overwhelmed, or told to stop asking questions. It organizes what you're experiencing, recognizes patterns, and helps you ask better, more grounded questions with real providers.</p></div>
+      </div>
+      <div class="acc-item" data-cat="how">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>How does the Ask WHY feature work?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>Type your health question or symptom in plain language. DiagnoseThis analyzes it through a functional medicine lens and returns 3 possible explanations — each with a plain language summary and suggested questions to bring to your provider. Free accounts get 3 WHYs per month.</p></div>
+      </div>
+      <div class="acc-item" data-cat="general">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>Is this a replacement for medical advice?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>No. DiagnoseThis does not diagnose disease, prescribe treatment, or replace your clinician. It helps you understand what's happening well enough to be taken seriously — so you can show up informed, not unsure.</p></div>
+      </div>
+      <div class="acc-item" data-cat="plans">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>What's the difference between See WHY and The WHY?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p><strong>See WHY</strong> is a medium depth report — pattern analysis, suggested labs, downloadable PDF. <strong>The WHY</strong> is the full clinical reasoning report — everything in See WHY plus actionable next steps and a provider script that your doctor actually can't ignore.</p></div>
+      </div>
+      <div class="acc-item" data-cat="privacy">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>Is my health information private?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>Yes. Your health questions and personal information are encrypted and never shared with third parties. Your health data is yours — full stop.</p></div>
+      </div>
+      <div class="acc-item" data-cat="account">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>How do I cancel my subscription?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>You can cancel anytime from your Profile &amp; Settings page. Click "Manage Subscription" and follow the steps. You'll retain full access until the end of your current billing period — no penalties, no runaround.</p></div>
+      </div>
+      <div class="acc-item" data-cat="plans">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>How many WHYs do I get for free?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>Free accounts get 3 WHYs per month. Your first WHY is always free — no credit card required. Upgrade to See WHY or The WHY for unlimited WHYs plus deeper reports.</p></div>
+      </div>
+      <div class="acc-item" data-cat="how">
+        <button class="acc-trigger" onclick="toggleAcc(this)"><h3>Who reviews and builds the explanations?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button>
+        <div class="acc-body"><p>DiagnoseThis is built and reviewed by Dr. Z and a team of licensed functional medicine clinicians. Every explanation is grounded in real clinical experience — not just algorithms.</p></div>
+      </div>
+    </div>
+  </div>
+  <!-- SUPPORT CTA -->
+  <div style="background:#f8f8f8;padding:48px 80px;border-top:1px solid #eee;display:flex;align-items:center;justify-content:space-between;">
+    <div><h2 style="font-size:24px;font-weight:900;color:#000;margin-bottom:8px;">Still have questions?</h2><p style="color:#555;font-size:15px;">Our support team is here to help — real people, real answers.</p></div>
+    <a href="#" style="background:#F15B5C;color:#fff;font-size:14px;font-weight:800;padding:14px 28px;border-radius:8px;text-decoration:none;white-space:nowrap;">Contact support →</a>
+  </div>
+  <div class="page-footer">
+    <div><div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;max-width:240px;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div class="footer-col"><h4>Quick links</h4><a href="#">Home</a><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy policy</a></div>
+    <div class="footer-col"><h4>Plans</h4><a href="#">Ask WHY (Free)</a><a href="#">See WHY</a><a href="#">The WHY</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">support@diagnosethis.com</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 The Dr Z Functional Medicine Clinic, LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">faq.html · Desktop 1920px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:15px;">DiagnoseThis<span>.com</span></span></div>
+    <button class="nav-cta" style="font-size:12px;padding:6px 14px;">Sign in</button>
+  </div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Help & FAQ</div>
+    <h1 style="color:#fff;font-size:34px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:14px;">Everything you need to <span style="color:#F15B5C;">know.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;">About DiagnoseThis — how it works, what it costs, and what it's not.</p>
+  </div>
+  <div style="padding:32px 40px;" id="faq-list-t">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">What is DiagnoseThis?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>DiagnoseThis helps you understand what your body may be trying to say — before you're dismissed or told to stop asking questions. It organizes what you're experiencing and helps you ask better questions with real providers.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">How does the Ask WHY feature work?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>Type your health question in plain language. DiagnoseThis returns 3 possible explanations with suggested questions to bring to your provider. Free accounts get 3 WHYs per month.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">Is this a replacement for medical advice?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>No. DiagnoseThis does not diagnose disease or replace your clinician. It helps you show up to appointments informed, not unsure.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">What's the difference between See WHY and The WHY?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p><strong>See WHY</strong> — pattern analysis, suggested labs, downloadable PDF. <strong>The WHY</strong> — everything in See WHY plus full clinical reasoning and a provider script.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">Is my health information private?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>Yes. Your information is encrypted and never shared with third parties.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">How do I cancel my subscription?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>Cancel anytime from Profile &amp; Settings → Manage Subscription. Full access until end of billing period — no penalties.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">How many WHYs do I get for free?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>3 WHYs per month on the free plan. Your first WHY is always free — no credit card needed.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><h3 style="font-size:15px;">Who builds the explanations?</h3><div class="acc-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p>Built and reviewed by Dr. Z and licensed functional medicine clinicians. Grounded in real clinical experience — not just algorithms.</p></div></div>
+  </div>
+  <div style="background:#f8f8f8;padding:32px 40px;border-top:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div><h2 style="font-size:20px;font-weight:900;color:#000;margin-bottom:6px;">Still have questions?</h2><p style="color:#555;font-size:14px;">Real people, real answers.</p></div>
+    <a href="#" style="background:#F15B5C;color:#fff;font-size:13px;font-weight:800;padding:12px 24px;border-radius:8px;text-decoration:none;white-space:nowrap;">Contact support →</a>
+  </div>
+  <div style="background:#111;padding:28px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><div class="logo" style="margin-bottom:8px;"><div class="logo-icon" style="width:24px;height:24px;"><svg width="12" height="12" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:13px;">DiagnoseThis<span>.com</span></span></div><p style="color:rgba(255,255,255,0.4);font-size:11px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">faq.html · Tablet 768px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <div class="logo"><div class="logo-icon" style="width:26px;height:26px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#fff" stroke-width="1.5"/><path d="M3 16c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="logo-text" style="font-size:14px;">DiagnoseThis<span>.com</span></span></div>
+    <button class="nav-cta" style="font-size:11px;padding:6px 12px;">Sign in</button>
+  </div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow" style="font-size:9px;padding:3px 10px;">Help & FAQ</div>
+    <h1 style="color:#fff;font-size:26px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">Everything you need to <span style="color:#F15B5C;">know.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.65;">How DiagnoseThis works, what it costs, and what it's not.</p>
+  </div>
+  <div style="padding:20px 20px 8px;">
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">What is DiagnoseThis?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">DiagnoseThis helps you understand what your body may be trying to say — before you're dismissed or told to stop asking questions.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">How does Ask WHY work?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">Type your symptoms in plain language. Get 3 possible explanations plus questions to bring to your provider. 3 free WHYs per month.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">Is this medical advice?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">No. DiagnoseThis does not diagnose disease or replace your clinician. It helps you show up informed.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">See WHY vs The WHY?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;"><strong>See WHY</strong> — pattern analysis + PDF. <strong>The WHY</strong> — full clinical reasoning + provider script.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">Is my data private?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">Yes. Encrypted and never shared with third parties.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">How do I cancel?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">Profile → Manage Subscription → Cancel. No penalties. Access continues until billing period ends.</p></div></div>
+    <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)" style="padding:16px 0;"><h3 style="font-size:14px;">Who builds the explanations?</h3><div class="acc-icon" style="width:24px;height:24px;"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></div></button><div class="acc-body"><p style="font-size:13px;">Dr. Z and licensed functional medicine clinicians — real clinical experience, not just algorithms.</p></div></div>
+  </div>
+  <div style="padding:20px;background:#f8f8f8;border-top:1px solid #eee;text-align:center;">
+    <h2 style="font-size:17px;font-weight:900;color:#000;margin-bottom:6px;">Still have questions?</h2>
+    <p style="color:#555;font-size:13px;margin-bottom:16px;">Real people, real answers.</p>
+    <a href="#" style="display:inline-block;background:#F15B5C;color:#fff;font-size:13px;font-weight:800;padding:12px 24px;border-radius:8px;text-decoration:none;">Contact support →</a>
+  </div>
+  <div style="background:#111;padding:24px 20px;">
+    <p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:12px;">© 2025 The Dr Z Functional Medicine Clinic, LLC.</p>
+    <div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">faq.html · Mobile 375px · Mockup 4 · DiagnoseThis © 2025</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+function toggleAcc(btn){
+  var icon=btn.querySelector('.acc-icon');
+  var body=btn.nextElementSibling;
+  var isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  icon.classList.toggle('open',!isOpen);
+}
+function filterFaq(cat,btn){
+  document.querySelectorAll('#faq-list .acc-item').forEach(function(item){
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+  });
+  document.querySelectorAll('#view-desktop .acc-trigger+div').forEach(function(b){b.classList.remove('open');});
+  document.querySelectorAll('#view-desktop .acc-icon').forEach(function(i){i.classList.remove('open');});
+  btn.parentElement.querySelectorAll('button').forEach(function(b){b.style.background='none';b.style.color='#333';});
+  btn.style.background='#000';btn.style.color='#fff';
+}
+</script>
+</body></html>
