@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Shop WHY</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-coral{display:inline-block;background:#F15B5C;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-item:nth-child(5){background:rgba(0,162,176,0.15);}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.nav-item:nth-child(5) .nav-word{color:#00A2B0;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+.product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee;}
+.product-img{width:100%;height:160px;background:#f8f8f8;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #eee;}
+.coming-badge{display:inline-block;background:#111;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.5px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">shop-why.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <svg width="240" height="36" viewBox="0 0 240 36" fill="none"><text x="0" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">DiagnoseThis</text><g transform="translate(155,3)"><line x1="4" y1="0" x2="4" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="0" x2="11" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><path d="M4 6 Q4 11 7.5 11 Q11 11 11 6" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M7.5 11 Q7.5 22 14 24" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="27" r="3" fill="#F15B5C"/></g><text x="175" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">.com</text><text x="218" y="12" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="9" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Dashboard</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Chat WHY</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Find WHY</a>
+      <a href="#" style="color:#fff;font-size:14px;text-decoration:none;font-weight:700;border-bottom:2px solid #00A2B0;padding-bottom:2px;">Shop WHY</a>
+      <div style="width:36px;height:36px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;">YJ</div>
+    </div>
+  </div>
+  <!-- HERO -->
+  <div style="background:#111;padding:72px 80px 60px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">Dr. Z's picks</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;">Shop <span style="color:#F15B5C;">WHY.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:580px;">Supplements, bundles, and books curated by Dr. Z — recommended based on what your WHY results reveal.</p>
+    <!-- Dr Z badge -->
+    <div style="margin-top:28px;display:flex;align-items:center;gap:16px;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div><p style="color:#fff;font-size:15px;font-weight:800;">Curated by Dr. Z</p><p style="color:rgba(255,255,255,0.5);font-size:13px;">Everything here is personally reviewed and recommended. No sponsored products.</p></div>
+    </div>
+  </div>
+  <!-- BODY -->
+  <div style="padding:56px 80px;">
+    <!-- Supplements section -->
+    <div style="margin-bottom:56px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:8px;">Supplements &amp; bundles</div>
+          <h2 style="font-size:28px;font-weight:900;color:#000;letter-spacing:-0.3px;">Quality supplements from Dr. Z's clinical experience.</h2>
+        </div>
+        <div class="coming-badge">Coming soon</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img"><p style="color:#bbb;font-size:12px;font-style:italic;">Product image</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Adrenal Support Bundle</p><p style="color:#888;font-size:12px;margin-bottom:8px;">Energy &amp; stress resilience</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img"><p style="color:#bbb;font-size:12px;font-style:italic;">Product image</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Gut Reset Kit</p><p style="color:#888;font-size:12px;margin-bottom:8px;">Digestion &amp; microbiome</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img"><p style="color:#bbb;font-size:12px;font-style:italic;">Product image</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Hormone Balance Support</p><p style="color:#888;font-size:12px;margin-bottom:8px;">Thyroid &amp; hormones</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img"><p style="color:#bbb;font-size:12px;font-style:italic;">Product image</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Brain &amp; Mood Bundle</p><p style="color:#888;font-size:12px;margin-bottom:8px;">Focus &amp; mental clarity</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+      </div>
+    </div>
+    <!-- Books section -->
+    <div style="margin-bottom:56px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:8px;">Books &amp; resources</div>
+          <h2 style="font-size:28px;font-weight:900;color:#000;letter-spacing:-0.3px;">Educational books on functional medicine &amp; wellness.</h2>
+        </div>
+        <div class="coming-badge">Coming soon</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img" style="background:#111;"><p style="color:#555;font-size:12px;font-style:italic;">Book cover</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Book title placeholder</p><p style="color:#888;font-size:12px;margin-bottom:8px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img" style="background:#111;"><p style="color:#555;font-size:12px;font-style:italic;">Book cover</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Book title placeholder</p><p style="color:#888;font-size:12px;margin-bottom:8px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img" style="background:#111;"><p style="color:#555;font-size:12px;font-style:italic;">Book cover</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Book title placeholder</p><p style="color:#888;font-size:12px;margin-bottom:8px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+        <div class="product-card" style="opacity:0.5;">
+          <div class="product-img" style="background:#111;"><p style="color:#555;font-size:12px;font-style:italic;">Book cover</p></div>
+          <div style="padding:16px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:4px;">Book title placeholder</p><p style="color:#888;font-size:12px;margin-bottom:8px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div>
+        </div>
+      </div>
+    </div>
+    <!-- Notify CTA -->
+    <div style="background:#111;border-radius:16px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:3px solid #F15B5C;">
+      <div>
+        <p style="color:#F15B5C;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Be the first to know</p>
+        <h2 style="color:#fff;font-size:28px;font-weight:900;margin-bottom:8px;letter-spacing:-0.3px;">Shop WHY is launching soon.</h2>
+        <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;">Get notified the moment Dr. Z's curated shop goes live.</p>
+      </div>
+      <div style="min-width:320px;">
+        <div style="display:flex;gap:10px;">
+          <input type="email" placeholder="your@email.com" style="flex:1;border:2px solid #fff;background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 14px;font-size:14px;outline:none;font-family:inherit;color:#fff;"/>
+          <button style="background:#F15B5C;border:none;border-radius:8px;padding:12px 20px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;">Notify me →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div style="background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+    <div><svg width="180" height="28" viewBox="0 0 180 28" fill="none"><text x="0" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(119,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 18 11 20" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="22" r="2.5" fill="#F15B5C"/></g><text x="134" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">.com</text><text x="162" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;max-width:240px;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">About us</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Contact</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">Privacy policy</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Plans</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Ask WHY (Free)</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">See WHY</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">The WHY</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Contact</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">support@diagnosethis.com</a></div>
+  </div>
+  <div style="background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;"><p style="color:rgba(255,255,255,0.3);font-size:11px;">© 2025 Core DT Solutions LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">shop-why.html · Desktop 1920px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <svg width="160" height="26" viewBox="0 0 160 26" fill="none"><text x="0" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(104,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 17 11 18" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="21" r="2.5" fill="#F15B5C"/></g><text x="118" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">.com</text><text x="148" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:14px;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">Dashboard</a><div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div></div>
+  </div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">Dr. Z's picks</div>
+    <h1 style="color:#fff;font-size:34px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:14px;">Shop <span style="color:#F15B5C;">WHY.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;margin-bottom:20px;">Supplements, bundles, and books curated by Dr. Z.</p>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div><p style="color:#fff;font-size:14px;font-weight:800;">Curated by Dr. Z</p><p style="color:rgba(255,255,255,0.5);font-size:12px;">No sponsored products — ever.</p></div>
+    </div>
+  </div>
+  <div style="padding:36px 40px;">
+    <!-- Supplements -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div><div class="eyebrow" style="margin-bottom:6px;">Supplements &amp; bundles</div><h2 style="font-size:20px;font-weight:900;color:#000;">Dr. Z's clinical favorites.</h2></div>
+      <div class="coming-badge">Coming soon</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;opacity:0.5;">
+      <div class="product-card"><div class="product-img" style="height:120px;"><p style="color:#bbb;font-size:11px;font-style:italic;">Product image</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Adrenal Support Bundle</p><p style="color:#888;font-size:11px;margin-bottom:6px;">Energy &amp; stress</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:120px;"><p style="color:#bbb;font-size:11px;font-style:italic;">Product image</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Gut Reset Kit</p><p style="color:#888;font-size:11px;margin-bottom:6px;">Digestion &amp; microbiome</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:120px;"><p style="color:#bbb;font-size:11px;font-style:italic;">Product image</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Hormone Balance Support</p><p style="color:#888;font-size:11px;margin-bottom:6px;">Thyroid &amp; hormones</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:120px;"><p style="color:#bbb;font-size:11px;font-style:italic;">Product image</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Brain &amp; Mood Bundle</p><p style="color:#888;font-size:11px;margin-bottom:6px;">Focus &amp; clarity</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+    </div>
+    <!-- Books -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div><div class="eyebrow" style="margin-bottom:6px;">Books &amp; resources</div><h2 style="font-size:20px;font-weight:900;color:#000;">Educational books by Dr. Z.</h2></div>
+      <div class="coming-badge">Coming soon</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;opacity:0.5;">
+      <div class="product-card"><div class="product-img" style="height:120px;background:#111;"><p style="color:#555;font-size:11px;font-style:italic;">Book cover</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Book title placeholder</p><p style="color:#888;font-size:11px;margin-bottom:6px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:120px;background:#111;"><p style="color:#555;font-size:11px;font-style:italic;">Book cover</p></div><div style="padding:14px;"><p style="font-size:13px;font-weight:800;color:#000;margin-bottom:3px;">Book title placeholder</p><p style="color:#888;font-size:11px;margin-bottom:6px;">By Dr. Z</p><p style="font-size:14px;font-weight:900;color:#F15B5C;">$—</p></div></div>
+    </div>
+    <!-- notify -->
+    <div style="background:#111;border-radius:12px;padding:28px;border-top:3px solid #F15B5C;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Be the first to know</p>
+      <h3 style="color:#fff;font-size:18px;font-weight:900;margin-bottom:8px;">Shop WHY is launching soon.</h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin-bottom:16px;">Get notified the moment Dr. Z's curated shop goes live.</p>
+      <div style="display:flex;gap:10px;">
+        <input type="email" placeholder="your@email.com" style="flex:1;border:2px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;color:#fff;"/>
+        <button style="background:#F15B5C;border:none;border-radius:8px;padding:10px 16px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;">Notify me →</button>
+      </div>
+    </div>
+  </div>
+  <div style="background:#111;padding:28px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><svg width="140" height="22" viewBox="0 0 140 22" fill="none"><text x="0" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(92,0)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="104" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">.com</text></svg><p style="color:rgba(255,255,255,0.4);font-size:11px;margin-top:8px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 Core DT Solutions LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">shop-why.html · Tablet 768px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <svg width="140" height="24" viewBox="0 0 140 24" fill="none"><text x="0" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(97,1)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="109" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">.com</text><text x="135" y="8" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div>
+  </div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral" style="font-size:9px;padding:3px 10px;">Dr. Z's picks</div>
+    <h1 style="color:#fff;font-size:26px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">Shop <span style="color:#F15B5C;">WHY.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.65;margin-bottom:16px;">Supplements, bundles, and books curated by Dr. Z.</p>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#F15B5C;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;flex-shrink:0;">DZ</div>
+      <div><p style="color:#fff;font-size:13px;font-weight:800;">Curated by Dr. Z</p><p style="color:rgba(255,255,255,0.5);font-size:11px;">No sponsored products.</p></div>
+    </div>
+  </div>
+  <div style="padding:20px;">
+    <!-- Supplements -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div><div class="eyebrow" style="font-size:9px;padding:3px 10px;margin-bottom:4px;">Supplements</div><h2 style="font-size:16px;font-weight:900;color:#000;">Dr. Z's clinical favorites.</h2></div>
+      <div class="coming-badge" style="font-size:9px;">Coming soon</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;opacity:0.5;">
+      <div class="product-card"><div class="product-img" style="height:90px;"><p style="color:#bbb;font-size:10px;font-style:italic;">Product image</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Adrenal Support</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:90px;"><p style="color:#bbb;font-size:10px;font-style:italic;">Product image</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Gut Reset Kit</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:90px;"><p style="color:#bbb;font-size:10px;font-style:italic;">Product image</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Hormone Balance</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:90px;"><p style="color:#bbb;font-size:10px;font-style:italic;">Product image</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Brain &amp; Mood</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+    </div>
+    <!-- Books -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div><div class="eyebrow" style="font-size:9px;padding:3px 10px;margin-bottom:4px;">Books</div><h2 style="font-size:16px;font-weight:900;color:#000;">By Dr. Z.</h2></div>
+      <div class="coming-badge" style="font-size:9px;">Coming soon</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;opacity:0.5;">
+      <div class="product-card"><div class="product-img" style="height:90px;background:#111;"><p style="color:#555;font-size:10px;font-style:italic;">Book cover</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Title placeholder</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+      <div class="product-card"><div class="product-img" style="height:90px;background:#111;"><p style="color:#555;font-size:10px;font-style:italic;">Book cover</p></div><div style="padding:10px;"><p style="font-size:11px;font-weight:800;color:#000;margin-bottom:2px;">Title placeholder</p><p style="color:#F15B5C;font-size:12px;font-weight:900;">$—</p></div></div>
+    </div>
+    <!-- notify -->
+    <div style="background:#111;border-radius:10px;padding:20px;border-top:3px solid #F15B5C;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Be the first to know</p>
+      <h3 style="color:#fff;font-size:16px;font-weight:900;margin-bottom:6px;">Shop WHY is launching soon.</h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:12px;line-height:1.5;margin-bottom:14px;">Get notified the moment the shop goes live.</p>
+      <input type="email" placeholder="your@email.com" style="width:100%;border:2px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;color:#fff;margin-bottom:10px;"/>
+      <button style="width:100%;background:#F15B5C;border:none;border-radius:8px;padding:11px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;">Notify me →</button>
+    </div>
+  </div>
+  <div style="background:#111;padding:20px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:10px;">© 2025 Core DT Solutions LLC.</p><div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">shop-why.html · Mobile 375px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
