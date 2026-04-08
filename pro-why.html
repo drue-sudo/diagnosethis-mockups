@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Pro WHY</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-coral{display:inline-block;background:#F15B5C;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+.check{width:18px;height:18px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.check svg{width:10px;height:10px;}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">pro-why.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <svg width="240" height="36" viewBox="0 0 240 36" fill="none"><text x="0" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">DiagnoseThis</text><g transform="translate(155,3)"><line x1="4" y1="0" x2="4" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="0" x2="11" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><path d="M4 6 Q4 11 7.5 11 Q11 11 11 6" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M7.5 11 Q7.5 22 14 24" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="27" r="3" fill="#F15B5C"/></g><text x="175" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">.com</text><text x="218" y="12" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="9" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Dashboard</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Ask WHY</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Find WHY</a>
+      <div style="width:36px;height:36px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;">YJ</div>
+    </div>
+  </div>
+  <!-- STRATEGIC FLAG -->
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:12px 32px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:16px;">⚑</span>
+    <p style="font-size:13px;color:#7a5500;font-weight:600;line-height:1.5;"><strong>Strategic decision needed for Dr. Z:</strong> Pro WHY is a practitioner product. Recommend moving it to a dedicated practitioner portal (pro.diagnosethis.com) or the Functional Medicine Academy site. Keep a quiet link in the DiagnoseThis footer — "Are you a practitioner? Learn about Pro WHY →" — without making it a primary nav item patients encounter.</p>
+  </div>
+  <!-- HERO -->
+  <div style="background:#111;padding:72px 80px 60px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">For practitioners</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;">Pro WHY — <span style="color:#F15B5C;">For practitioners.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:600px;">Join the DiagnoseThis practitioner network. Get listed in the directory and connect with thousands of informed patients seeking your expertise.</p>
+    <div style="margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div style="background:rgba(241,91,92,0.15);border:2px solid #F15B5C;border-radius:12px;padding:20px 32px;text-align:center;">
+        <p style="color:#F15B5C;font-size:28px;font-weight:900;margin-bottom:2px;">$197<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></p>
+        <p style="color:rgba(255,255,255,0.5);font-size:12px;">Monthly billing</p>
+      </div>
+      <div style="background:rgba(0,162,176,0.15);border:2px solid #00A2B0;border-radius:12px;padding:20px 32px;text-align:center;position:relative;">
+        <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#00A2B0;color:#fff;font-size:9px;font-weight:700;padding:2px 10px;border-radius:20px;white-space:nowrap;">SAVE $367</div>
+        <p style="color:#00A2B0;font-size:28px;font-weight:900;margin-bottom:2px;">$1,997<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.5)">/yr</span></p>
+        <p style="color:rgba(255,255,255,0.5);font-size:12px;">Annual billing</p>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 18px;"><div style="width:7px;height:7px;border-radius:50%;background:#F15B5C;"></div><p style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;">Directory listing coming soon</p></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:14px;">⚑ Pricing placeholder — confirm with Dr. Z before dev</p>
+  </div>
+  <!-- BODY -->
+  <div style="display:grid;grid-template-columns:1fr 400px;gap:0;min-height:560px;">
+    <!-- LEFT -->
+    <div style="padding:56px 64px;border-right:1px solid #eee;">
+      <h2 style="font-size:26px;font-weight:900;color:#000;margin-bottom:8px;">What's included:</h2>
+      <p style="color:#888;font-size:15px;margin-bottom:32px;">Everything you need to connect with informed patients who are already educated about functional medicine.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #F15B5C;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Premium listing in Find WHY directory</p><p style="color:#555;font-size:13px;line-height:1.5;">Be found by patients who are already educated and ready for real conversations.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #00A2B0;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Full practice profile with photos &amp; credentials</p><p style="color:#555;font-size:13px;line-height:1.5;">Showcase your specialties, experience, and approach.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #000;"><div class="check" style="background:#000;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Direct patient inquiry form</p><p style="color:#555;font-size:13px;line-height:1.5;">Receive inquiries directly from patients through your listing.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #F15B5C;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Booking calendar integration</p><p style="color:#555;font-size:13px;line-height:1.5;">Let patients book directly from your profile.</p></div></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #00A2B0;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Monthly analytics &amp; insights</p><p style="color:#555;font-size:13px;line-height:1.5;">See how many patients viewed and contacted your listing.</p></div></div>
+      </div>
+      <!-- who should join -->
+      <div style="background:#111;border-radius:12px;padding:28px;border-top:3px solid #00A2B0;">
+        <p style="color:#00A2B0;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Who should join Pro WHY:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#F15B5C;flex-shrink:0;"></div><p style="color:#fff;font-size:13px;">Functional Medicine Practitioners</p></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#00A2B0;flex-shrink:0;"></div><p style="color:#fff;font-size:13px;">Naturopathic Doctors (ND)</p></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#F15B5C;flex-shrink:0;"></div><p style="color:#fff;font-size:13px;">Integrative Medicine MDs</p></div>
+          <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#00A2B0;flex-shrink:0;"></div><p style="color:#fff;font-size:13px;">Health Coaches &amp; Nutritionists</p></div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT -->
+    <div style="background:#f8f8f8;padding:48px 36px;display:flex;flex-direction:column;gap:20px;">
+      <!-- waitlist -->
+      <div style="background:#fff;border-radius:12px;padding:28px;border-top:3px solid #F15B5C;">
+        <p style="color:#F15B5C;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Ready to grow your practice?</p>
+        <h3 style="font-size:18px;font-weight:900;color:#000;margin-bottom:8px;">Join the waitlist.</h3>
+        <p style="color:#555;font-size:13px;line-height:1.6;margin-bottom:20px;">Connect with patients already educated about functional medicine.</p>
+        <div style="margin-bottom:12px;"><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Your name</label><input type="text" placeholder="Dr. Jane Smith" style="width:100%;border:2px solid #000;border-radius:8px;padding:11px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+        <div style="margin-bottom:12px;"><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Email</label><input type="email" placeholder="doctor@practice.com" style="width:100%;border:2px solid #000;border-radius:8px;padding:11px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+        <div style="margin-bottom:20px;"><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Specialty</label><input type="text" placeholder="e.g. Functional Medicine, ND, MD..." style="width:100%;border:2px solid #000;border-radius:8px;padding:11px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+        <button style="width:100%;background:#F15B5C;border:none;border-radius:8px;padding:13px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;">Join the waitlist →</button>
+        <p style="color:#aaa;font-size:11px;text-align:center;margin-top:10px;">Have questions? <a href="mailto:practitioners@diagnosethis.com" style="color:#00A2B0;text-decoration:none;">practitioners@diagnosethis.com</a></p>
+      </div>
+      <!-- back link -->
+      <div style="background:#fff;border-radius:12px;padding:18px;border:2px solid #eee;text-align:center;">
+        <a href="#" style="color:#555;font-size:13px;text-decoration:none;">← Back to Find WHY</a>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div style="background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+    <div><svg width="180" height="28" viewBox="0 0 180 28" fill="none"><text x="0" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(119,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 18 11 20" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="22" r="2.5" fill="#F15B5C"/></g><text x="134" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">.com</text><text x="162" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;max-width:240px;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">About us</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Contact</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">Privacy policy</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Plans</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Ask WHY (Free)</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">See WHY</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">The WHY</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Contact</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">support@diagnosethis.com</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">Are you a practitioner? <span style="color:#00A2B0;">Learn about Pro WHY →</span></a></div>
+  </div>
+  <div style="background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;"><p style="color:rgba(255,255,255,0.3);font-size:11px;">© 2025 Core DT Solutions LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">pro-why.html · Desktop 1920px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <svg width="160" height="26" viewBox="0 0 160 26" fill="none"><text x="0" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(104,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 17 11 18" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="21" r="2.5" fill="#F15B5C"/></g><text x="118" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">.com</text><text x="148" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:14px;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">Dashboard</a><div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div></div>
+  </div>
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:10px 24px;display:flex;align-items:flex-start;gap:8px;"><span style="font-size:14px;flex-shrink:0;">⚑</span><p style="font-size:12px;color:#7a5500;font-weight:600;line-height:1.5;"><strong>Strategic decision needed:</strong> Pro WHY is a practitioner product — recommend separate portal. Review with Dr. Z before dev.</p></div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral">For practitioners</div>
+    <h1 style="color:#fff;font-size:32px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:14px;">Pro WHY — <span style="color:#F15B5C;">For practitioners.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;margin-bottom:20px;">Join the DiagnoseThis practitioner network and connect with thousands of informed patients.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <div style="background:rgba(241,91,92,0.15);border:2px solid #F15B5C;border-radius:10px;padding:16px 24px;text-align:center;"><p style="color:#F15B5C;font-size:22px;font-weight:900;margin-bottom:2px;">$197<span style="font-size:12px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></p><p style="color:rgba(255,255,255,0.5);font-size:11px;">Monthly</p></div>
+      <div style="background:rgba(0,162,176,0.15);border:2px solid #00A2B0;border-radius:10px;padding:16px 24px;text-align:center;position:relative;"><div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#00A2B0;color:#fff;font-size:8px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;">SAVE $367</div><p style="color:#00A2B0;font-size:22px;font-weight:900;margin-bottom:2px;">$1,997<span style="font-size:12px;font-weight:400;color:rgba(255,255,255,0.5)">/yr</span></p><p style="color:rgba(255,255,255,0.5);font-size:11px;">Annual</p></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:10px;">⚑ Confirm pricing with Dr. Z before dev</p>
+  </div>
+  <div style="padding:36px 40px;">
+    <h2 style="font-size:20px;font-weight:900;color:#000;margin-bottom:16px;">What's included:</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:13px;font-weight:700;color:#000;">Premium listing in Find WHY directory</p></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:13px;font-weight:700;color:#000;">Full practice profile with photos &amp; credentials</p></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #000;"><div class="check" style="background:#000;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:13px;font-weight:700;color:#000;">Direct patient inquiry form</p></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:13px;font-weight:700;color:#000;">Booking calendar integration</p></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><div class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:13px;font-weight:700;color:#000;">Monthly analytics &amp; insights</p></div>
+    </div>
+    <!-- waitlist form -->
+    <div style="background:#f8f8f8;border-radius:12px;padding:28px;border-top:3px solid #F15B5C;margin-bottom:16px;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Ready to grow your practice?</p>
+      <h3 style="font-size:18px;font-weight:900;color:#000;margin-bottom:16px;">Join the waitlist.</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Name</label><input type="text" placeholder="Dr. Jane Smith" style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+        <div><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Email</label><input type="email" placeholder="doctor@practice.com" style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+      </div>
+      <div style="margin-bottom:16px;"><label style="display:block;color:#000;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px;">Specialty</label><input type="text" placeholder="e.g. Functional Medicine, ND, MD..." style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+      <button style="width:100%;background:#F15B5C;border:none;border-radius:8px;padding:12px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;">Join the waitlist →</button>
+      <p style="color:#aaa;font-size:11px;text-align:center;margin-top:10px;">Questions? <a href="mailto:practitioners@diagnosethis.com" style="color:#00A2B0;text-decoration:none;">practitioners@diagnosethis.com</a></p>
+    </div>
+    <div style="text-align:center;"><a href="#" style="color:#555;font-size:13px;text-decoration:none;">← Back to Find WHY</a></div>
+  </div>
+  <div style="background:#111;padding:28px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><svg width="140" height="22" viewBox="0 0 140 22" fill="none"><text x="0" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(92,0)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="104" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">.com</text></svg><p style="color:rgba(255,255,255,0.4);font-size:11px;margin-top:8px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Find WHY</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 Core DT Solutions LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">pro-why.html · Tablet 768px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <svg width="140" height="24" viewBox="0 0 140 24" fill="none"><text x="0" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(97,1)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="109" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">.com</text><text x="135" y="8" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div>
+  </div>
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:8px 16px;display:flex;align-items:flex-start;gap:6px;"><span style="font-size:12px;flex-shrink:0;">⚑</span><p style="font-size:11px;color:#7a5500;font-weight:600;line-height:1.4;"><strong>Strategic decision needed</strong> — review Pro WHY positioning with Dr. Z.</p></div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #F15B5C;">
+    <div class="eyebrow-coral" style="font-size:9px;padding:3px 10px;">For practitioners</div>
+    <h1 style="color:#fff;font-size:24px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">Pro WHY — <span style="color:#F15B5C;">For practitioners.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;margin-bottom:16px;">Join the DiagnoseThis practitioner network and connect with informed patients.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <div style="background:rgba(241,91,92,0.15);border:2px solid #F15B5C;border-radius:8px;padding:12px 16px;text-align:center;"><p style="color:#F15B5C;font-size:18px;font-weight:900;margin-bottom:1px;">$197<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.5)">/mo</span></p><p style="color:rgba(255,255,255,0.5);font-size:10px;">Monthly</p></div>
+      <div style="background:rgba(0,162,176,0.15);border:2px solid #00A2B0;border-radius:8px;padding:12px 16px;text-align:center;position:relative;"><div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#00A2B0;color:#fff;font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap;">SAVE $367</div><p style="color:#00A2B0;font-size:18px;font-weight:900;margin-bottom:1px;">$1,997<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.5)">/yr</span></p><p style="color:rgba(255,255,255,0.5);font-size:10px;">Annual</p></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:8px;">⚑ Confirm pricing with Dr. Z</p>
+  </div>
+  <div style="padding:20px;">
+    <h2 style="font-size:17px;font-weight:900;color:#000;margin-bottom:12px;">What's included:</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><div class="check" style="width:16px;height:16px;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:12px;font-weight:700;color:#000;">Premium directory listing</p></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><div class="check" style="width:16px;height:16px;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:12px;font-weight:700;color:#000;">Full practice profile</p></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#f8f8f8;border-radius:8px;border-left:3px solid #000;"><div class="check" style="width:16px;height:16px;background:#000;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:12px;font-weight:700;color:#000;">Direct patient inquiry form</p></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><div class="check" style="width:16px;height:16px;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:12px;font-weight:700;color:#000;">Booking calendar integration</p></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><div class="check" style="width:16px;height:16px;"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-size:12px;font-weight:700;color:#000;">Monthly analytics &amp; insights</p></div>
+    </div>
+    <!-- waitlist form mobile -->
+    <div style="background:#f8f8f8;border-radius:10px;padding:20px;border-top:3px solid #F15B5C;margin-bottom:14px;">
+      <p style="color:#F15B5C;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Ready to grow your practice?</p>
+      <h3 style="font-size:16px;font-weight:900;color:#000;margin-bottom:14px;">Join the waitlist.</h3>
+      <div style="margin-bottom:10px;"><label style="display:block;color:#000;font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:5px;">Name</label><input type="text" placeholder="Dr. Jane Smith" style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+      <div style="margin-bottom:10px;"><label style="display:block;color:#000;font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:5px;">Email</label><input type="email" placeholder="doctor@practice.com" style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+      <div style="margin-bottom:14px;"><label style="display:block;color:#000;font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:5px;">Specialty</label><input type="text" placeholder="Functional Medicine, ND, MD..." style="width:100%;border:2px solid #000;border-radius:8px;padding:10px 12px;font-size:13px;outline:none;font-family:inherit;"/></div>
+      <button style="width:100%;background:#F15B5C;border:none;border-radius:8px;padding:12px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;">Join the waitlist →</button>
+      <p style="color:#aaa;font-size:11px;text-align:center;margin-top:8px;">Questions? <a href="mailto:practitioners@diagnosethis.com" style="color:#00A2B0;text-decoration:none;">practitioners@diagnosethis.com</a></p>
+    </div>
+    <div style="text-align:center;"><a href="#" style="color:#555;font-size:13px;text-decoration:none;">← Back to Find WHY</a></div>
+  </div>
+  <div style="background:#111;padding:20px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:10px;">© 2025 Core DT Solutions LLC.</p><div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">pro-why.html · Mobile 375px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
