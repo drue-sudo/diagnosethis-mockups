@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DiagnoseThis — Lab WHY</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#e0e0e0;padding:20px;}
+.preview-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.preview-bar span{font-size:12px;font-weight:700;color:#555;margin-right:4px;}
+.pv-btn{padding:7px 16px;border-radius:20px;border:2px solid #999;background:#f0f0f0;font-size:12px;font-weight:700;cursor:pointer;color:#444;}
+.pv-btn.active{background:#111;color:#fff;border-color:#111;}
+.preview-note{font-size:11px;color:#888;margin-left:4px;}
+.shell{margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+.eyebrow{display:inline-block;background:#00A2B0;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-coral{display:inline-block;background:#F15B5C;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.eyebrow-warning{display:inline-flex;align-items:center;gap:6px;background:#fff8e6;border:1px solid #ffb533;color:#7a5500;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.bottom-nav{background:#000;display:flex;justify-content:center;border-top:3px solid #00A2B0;}
+.nav-item{flex:1;text-align:center;cursor:pointer;padding:12px 8px;border-right:0.5px solid rgba(255,255,255,0.1);}
+.nav-item:last-child{border-right:none;}
+.nav-verb{color:rgba(255,255,255,0.5);font-size:8px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:2px;}
+.nav-word{color:#fff;font-size:12px;font-weight:700;}
+.label-bar{padding:8px;background:#f5f5f5;font-size:11px;color:#888;text-align:center;border-top:1px solid #eee;}
+/* range bar */
+.range-bar{width:100%;height:10px;border-radius:5px;background:#eee;position:relative;margin:8px 0;}
+.range-fill{height:100%;border-radius:5px;position:absolute;left:0;top:0;}
+.range-marker{width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #000;position:absolute;top:-2px;transform:translateX(-50%);}
+</style>
+</head><body>
+
+<div class="preview-bar">
+  <span>Preview:</span>
+  <button class="pv-btn active" onclick="setView('desktop')">Desktop — 1920px</button>
+  <button class="pv-btn" onclick="setView('tablet')">Tablet — 768px</button>
+  <button class="pv-btn" onclick="setView('mobile')">Mobile — 375px</button>
+  <span class="preview-note">lab-why.html · Mockup 4 · DiagnoseThis</span>
+</div>
+
+<!-- ======== DESKTOP ======== -->
+<div id="view-desktop">
+<div class="shell" style="max-width:1280px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;">
+    <svg width="240" height="36" viewBox="0 0 240 36" fill="none"><text x="0" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">DiagnoseThis</text><g transform="translate(155,3)"><line x1="4" y1="0" x2="4" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="0" x2="11" y2="6" stroke="#F15B5C" stroke-width="2" stroke-linecap="round"/><path d="M4 6 Q4 11 7.5 11 Q11 11 11 6" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M7.5 11 Q7.5 22 14 24" stroke="#F15B5C" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="27" r="3" fill="#F15B5C"/></g><text x="175" y="27" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" font-weight="800" fill="#fff" letter-spacing="-0.5">.com</text><text x="218" y="12" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="9" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Dashboard</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Ask WHY</a>
+      <a href="#" style="color:rgba(255,255,255,0.6);font-size:14px;text-decoration:none;">Profile</a>
+      <div style="width:36px;height:36px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;">YJ</div>
+    </div>
+  </div>
+  <!-- STRATEGIC FLAG BANNER -->
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:12px 32px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:16px;">⚑</span>
+    <p style="font-size:13px;color:#7a5500;font-weight:600;"><strong>Strategic decision needed for Dr. Z:</strong> Lab WHY at $599/month is a practitioner-grade tool. Consider moving this to a separate practitioner portal (pro.diagnosethis.com) rather than surfacing it to patients. If it's patient-facing, pricing and positioning need to be rethought for a consumer audience.</p>
+  </div>
+  <!-- HERO -->
+  <div style="background:#111;padding:72px 80px 60px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Lab analysis</div>
+    <h1 style="color:#fff;font-size:48px;font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;">Lab WHY — Turn labs <span style="color:#F15B5C;">into answers.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:18px;line-height:1.7;max-width:580px;">Upload your labs or connect your lab portal to discover your functional ranges and patterns — in plain language, in seconds.</p>
+    <div style="margin-top:24px;display:inline-flex;align-items:center;gap:8px;background:rgba(241,91,92,0.15);border:1px solid rgba(241,91,92,0.3);border-radius:8px;padding:10px 18px;"><div style="width:7px;height:7px;border-radius:50%;background:#F15B5C;"></div><p style="color:#F15B5C;font-size:13px;font-weight:700;">Coming soon — get notified when Lab WHY launches</p></div>
+  </div>
+  <!-- BODY -->
+  <div style="display:grid;grid-template-columns:1fr 400px;gap:0;min-height:560px;">
+    <!-- LEFT -->
+    <div style="padding:56px 64px;border-right:1px solid #eee;">
+      <h2 style="font-size:26px;font-weight:900;color:#000;margin-bottom:8px;">Lab analysis features launching soon</h2>
+      <p style="color:#888;font-size:15px;margin-bottom:32px;">Get notified when lab interpretation goes live.</p>
+      <!-- email capture -->
+      <div style="display:flex;gap:10px;margin-bottom:40px;max-width:480px;">
+        <input type="email" placeholder="your@email.com" style="flex:1;border:2px solid #000;border-radius:8px;padding:12px 14px;font-size:14px;outline:none;font-family:inherit;"/>
+        <button style="background:#F15B5C;border:none;border-radius:8px;padding:12px 20px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;">Notify me →</button>
+      </div>
+      <!-- features -->
+      <p style="font-size:12px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;">What Lab WHY will include:</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #F15B5C;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#fff0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Upload labs or connect your portal</p><p style="color:#555;font-size:13px;line-height:1.5;">Blood work, DUTCH, GI MAP, OATs, SIBO, hormone testing and more.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #00A2B0;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#e8f8f9;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#00A2B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Functional range analysis — not just normal/abnormal</p><p style="color:#555;font-size:13px;line-height:1.5;">See where you actually fall within optimal functional ranges.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #000;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#000" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="#000" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Plain language — no jargon, no spiraling</p><p style="color:#555;font-size:13px;line-height:1.5;">Understand your results in seconds, not hours of research.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:18px;background:#f8f8f8;border-radius:10px;border-left:3px solid #F15B5C;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#fff0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#F15B5C" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div><p style="font-size:14px;font-weight:800;color:#000;margin-bottom:3px;">Expert clinical advice from Dr. Z</p><p style="color:#555;font-size:13px;line-height:1.5;">Powered by Dr. Z's clinical experience — not just reference ranges.</p></div>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT: demo -->
+    <div style="background:#f8f8f8;padding:48px 36px;">
+      <p style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;">Example: functional range analysis</p>
+      <!-- demo cards -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <p style="font-size:14px;font-weight:800;color:#000;">Vitamin D</p>
+            <span style="background:#fff8e6;color:#7a5500;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #ffb533;">Suboptimal</span>
+          </div>
+          <div class="range-bar">
+            <div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 30%,#00A2B0 55%,#00A2B0 80%,#f15b5c 100%);opacity:0.3;"></div>
+            <div class="range-fill" style="width:55%;background:#ffb533;opacity:0.6;"></div>
+            <div class="range-marker" style="left:38%;border-color:#ffb533;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:10px;color:#aaa;">Low</span><span style="font-size:10px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:10px;color:#aaa;">High</span></div>
+          <p style="color:#555;font-size:12px;margin-top:10px;line-height:1.5;">Your level is below functional optimal. Consider testing again after supplementation.</p>
+        </div>
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <p style="font-size:14px;font-weight:800;color:#000;">Iron</p>
+            <span style="background:#e8f8f9;color:#00A2B0;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #00A2B0;">Optimal</span>
+          </div>
+          <div class="range-bar">
+            <div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 25%,#00A2B0 45%,#00A2B0 75%,#ffb533 88%,#f15b5c 100%);opacity:0.3;"></div>
+            <div class="range-fill" style="width:60%;background:#00A2B0;opacity:0.6;"></div>
+            <div class="range-marker" style="left:60%;border-color:#00A2B0;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:10px;color:#aaa;">Low</span><span style="font-size:10px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:10px;color:#aaa;">High</span></div>
+          <p style="color:#555;font-size:12px;margin-top:10px;line-height:1.5;">Your iron is within functional optimal range. Keep maintaining current habits.</p>
+        </div>
+        <div style="background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <p style="font-size:14px;font-weight:800;color:#000;">TSH (Thyroid)</p>
+            <span style="background:#fff0f0;color:#c0392b;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #F15B5C;">Review needed</span>
+          </div>
+          <div class="range-bar">
+            <div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 20%,#00A2B0 35%,#00A2B0 65%,#ffb533 80%,#f15b5c 100%);opacity:0.3;"></div>
+            <div class="range-fill" style="width:82%;background:#F15B5C;opacity:0.6;"></div>
+            <div class="range-marker" style="left:82%;border-color:#F15B5C;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:10px;color:#aaa;">Low</span><span style="font-size:10px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:10px;color:#aaa;">High</span></div>
+          <p style="color:#555;font-size:12px;margin-top:10px;line-height:1.5;">Your TSH is above functional optimal. Ask your provider about a full thyroid panel.</p>
+        </div>
+        <p style="color:#aaa;font-size:11px;text-align:center;font-style:italic;">This is an example. Your results will be fully customized.</p>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div style="background:#111;padding:40px 80px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+    <div><svg width="180" height="28" viewBox="0 0 180 28" fill="none"><text x="0" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(119,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 18 11 20" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="22" r="2.5" fill="#F15B5C"/></g><text x="134" y="21" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="800" fill="#fff">.com</text><text x="162" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg><p style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:10px;line-height:1.6;max-width:240px;">Understanding the WHY behind your health — with clarity, not conclusions.</p></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">About us</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Contact</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">Privacy policy</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Plans</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">Ask WHY (Free)</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;margin-bottom:6px;">See WHY</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">The WHY</a></div>
+    <div><h4 style="color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;">Contact</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;">support@diagnosethis.com</a></div>
+  </div>
+  <div style="background:#000;padding:12px 80px;display:flex;justify-content:space-between;align-items:center;"><p style="color:rgba(255,255,255,0.3);font-size:11px;">© 2025 Core DT Solutions LLC. DiagnoseThis is educational and does not replace medical advice.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;margin-left:16px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">lab-why.html · Desktop 1920px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== TABLET ======== -->
+<div id="view-tablet" style="display:none;">
+<div class="shell" style="max-width:768px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;">
+    <svg width="160" height="26" viewBox="0 0 160 26" fill="none"><text x="0" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(104,1)"><line x1="3" y1="0" x2="3" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="0" x2="9" y2="5" stroke="#F15B5C" stroke-width="1.8" stroke-linecap="round"/><path d="M3 5 Q3 9 6 9 Q9 9 9 5" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M6 9 Q6 17 11 18" stroke="#F15B5C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="11" cy="21" r="2.5" fill="#F15B5C"/></g><text x="118" y="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16" font-weight="800" fill="#fff">.com</text><text x="148" y="9" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="display:flex;align-items:center;gap:14px;"><a href="#" style="color:rgba(255,255,255,0.6);font-size:12px;text-decoration:none;">Dashboard</a><div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div></div>
+  </div>
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:10px 24px;display:flex;align-items:flex-start;gap:8px;">
+    <span style="font-size:14px;flex-shrink:0;">⚑</span>
+    <p style="font-size:12px;color:#7a5500;font-weight:600;line-height:1.5;"><strong>Strategic decision needed:</strong> Lab WHY positioning and pricing needs Dr. Z's review before dev.</p>
+  </div>
+  <div style="background:#111;padding:48px 40px 40px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow">Lab analysis</div>
+    <h1 style="color:#fff;font-size:32px;font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:14px;">Lab WHY — Turn labs <span style="color:#F15B5C;">into answers.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;margin-bottom:20px;">Upload your labs or connect your portal to discover functional ranges — in plain language, in seconds.</p>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(241,91,92,0.15);border:1px solid rgba(241,91,92,0.3);border-radius:8px;padding:8px 14px;"><div style="width:6px;height:6px;border-radius:50%;background:#F15B5C;"></div><p style="color:#F15B5C;font-size:12px;font-weight:700;">Coming soon</p></div>
+  </div>
+  <div style="padding:36px 40px;">
+    <div style="display:flex;gap:10px;margin-bottom:28px;">
+      <input type="email" placeholder="your@email.com" style="flex:1;border:2px solid #000;border-radius:8px;padding:11px 12px;font-size:13px;outline:none;font-family:inherit;"/>
+      <button style="background:#F15B5C;border:none;border-radius:8px;padding:11px 16px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;">Notify me →</button>
+    </div>
+    <h2 style="font-size:18px;font-weight:900;color:#000;margin-bottom:16px;">What Lab WHY will include:</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+      <div style="padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><p style="font-size:13px;font-weight:700;color:#000;margin-bottom:2px;">Upload labs or connect your portal</p><p style="color:#555;font-size:12px;">Blood work, DUTCH, GI MAP, OATs, SIBO &amp; more.</p></div>
+      <div style="padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><p style="font-size:13px;font-weight:700;color:#000;margin-bottom:2px;">Functional range analysis — not just normal/abnormal</p><p style="color:#555;font-size:12px;">See where you fall within optimal functional ranges.</p></div>
+      <div style="padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #000;"><p style="font-size:13px;font-weight:700;color:#000;margin-bottom:2px;">Plain language — no jargon</p><p style="color:#555;font-size:12px;">Understand results in seconds, not hours of research.</p></div>
+      <div style="padding:14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><p style="font-size:13px;font-weight:700;color:#000;margin-bottom:2px;">Expert clinical advice from Dr. Z</p><p style="color:#555;font-size:12px;">Powered by real clinical experience.</p></div>
+    </div>
+    <!-- demo -->
+    <p style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;">Example: functional range analysis</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="background:#f8f8f8;border-radius:10px;padding:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><p style="font-size:13px;font-weight:800;color:#000;">Vitamin D</p><span style="background:#fff8e6;color:#7a5500;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;border:1px solid #ffb533;">Suboptimal</span></div>
+        <div class="range-bar"><div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 30%,#00A2B0 55%,#00A2B0 80%,#f15b5c 100%);opacity:0.3;"></div><div class="range-fill" style="width:38%;background:#ffb533;opacity:0.6;"></div><div class="range-marker" style="left:38%;border-color:#ffb533;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:10px;color:#aaa;">Low</span><span style="font-size:10px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:10px;color:#aaa;">High</span></div>
+      </div>
+      <div style="background:#f8f8f8;border-radius:10px;padding:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><p style="font-size:13px;font-weight:800;color:#000;">Iron</p><span style="background:#e8f8f9;color:#00A2B0;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;border:1px solid #00A2B0;">Optimal</span></div>
+        <div class="range-bar"><div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 25%,#00A2B0 45%,#00A2B0 75%,#ffb533 88%,#f15b5c 100%);opacity:0.3;"></div><div class="range-fill" style="width:60%;background:#00A2B0;opacity:0.6;"></div><div class="range-marker" style="left:60%;border-color:#00A2B0;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:10px;color:#aaa;">Low</span><span style="font-size:10px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:10px;color:#aaa;">High</span></div>
+      </div>
+      <p style="color:#aaa;font-size:11px;text-align:center;font-style:italic;">This is an example. Your results will be fully customized.</p>
+    </div>
+  </div>
+  <div style="background:#111;padding:28px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div><svg width="140" height="22" viewBox="0 0 140 22" fill="none"><text x="0" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(92,0)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.5" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="104" y="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="14" font-weight="800" fill="#fff">.com</text></svg><p style="color:rgba(255,255,255,0.4);font-size:11px;margin-top:8px;line-height:1.6;">Understanding the WHY behind your health.</p></div>
+    <div><h4 style="color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">Quick links</h4><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">Home</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;margin-bottom:5px;">About</a><a href="#" style="display:block;color:rgba(255,255,255,0.5);font-size:12px;text-decoration:none;">Contact</a></div>
+  </div>
+  <div style="background:#000;padding:10px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;">© 2025 Core DT Solutions LLC.</p><div><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:none;margin-left:12px;">Terms</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">lab-why.html · Tablet 768px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<!-- ======== MOBILE ======== -->
+<div id="view-mobile" style="display:none;">
+<div class="shell" style="max-width:375px;">
+  <div style="background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;">
+    <svg width="140" height="24" viewBox="0 0 140 24" fill="none"><text x="0" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">DiagnoseThis</text><g transform="translate(97,1)"><line x1="2.5" y1="0" x2="2.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><line x1="7.5" y1="0" x2="7.5" y2="4" stroke="#F15B5C" stroke-width="1.6" stroke-linecap="round"/><path d="M2.5 4 Q2.5 7.5 5 7.5 Q7.5 7.5 7.5 4" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M5 7.5 Q5 14 9 15" stroke="#F15B5C" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="9" cy="17" r="2" fill="#F15B5C"/></g><text x="109" y="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#fff">.com</text><text x="135" y="8" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" fill="#fff">™</text></svg>
+    <div style="width:30px;height:30px;border-radius:50%;background:#00A2B0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">YJ</div>
+  </div>
+  <div style="background:#fff8e6;border-bottom:2px solid #ffb533;padding:8px 16px;display:flex;align-items:flex-start;gap:6px;">
+    <span style="font-size:12px;flex-shrink:0;">⚑</span>
+    <p style="font-size:11px;color:#7a5500;font-weight:600;line-height:1.4;"><strong>Strategic decision needed</strong> — Lab WHY positioning needs Dr. Z's review.</p>
+  </div>
+  <div style="background:#111;padding:28px 20px 24px;border-bottom:3px solid #00A2B0;">
+    <div class="eyebrow" style="font-size:9px;padding:3px 10px;">Lab analysis</div>
+    <h1 style="color:#fff;font-size:24px;font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin:12px 0;">Lab WHY — Turn labs <span style="color:#F15B5C;">into answers.</span></h1>
+    <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;margin-bottom:14px;">Upload your labs to discover functional ranges in plain language.</p>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(241,91,92,0.15);border:1px solid rgba(241,91,92,0.3);border-radius:6px;padding:6px 12px;"><div style="width:6px;height:6px;border-radius:50%;background:#F15B5C;"></div><p style="color:#F15B5C;font-size:11px;font-weight:700;">Coming soon</p></div>
+  </div>
+  <div style="padding:20px;">
+    <input type="email" placeholder="your@email.com" style="width:100%;border:2px solid #000;border-radius:8px;padding:11px 12px;font-size:14px;outline:none;font-family:inherit;margin-bottom:10px;"/>
+    <button style="width:100%;background:#F15B5C;border:none;border-radius:8px;padding:12px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;margin-bottom:20px;">Notify me when Lab WHY launches →</button>
+    <h2 style="font-size:17px;font-weight:900;color:#000;margin-bottom:12px;">What Lab WHY will include:</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+      <div style="padding:12px 14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><p style="font-size:13px;font-weight:700;color:#000;">Upload labs or connect your portal</p></div>
+      <div style="padding:12px 14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #00A2B0;"><p style="font-size:13px;font-weight:700;color:#000;">Functional range analysis</p></div>
+      <div style="padding:12px 14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #000;"><p style="font-size:13px;font-weight:700;color:#000;">Plain language — no jargon</p></div>
+      <div style="padding:12px 14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #F15B5C;"><p style="font-size:13px;font-weight:700;color:#000;">Expert clinical advice from Dr. Z</p></div>
+    </div>
+    <p style="font-size:10px;font-weight:700;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Example: range analysis</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="background:#f8f8f8;border-radius:8px;padding:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;"><p style="font-size:12px;font-weight:800;color:#000;">Vitamin D</p><span style="background:#fff8e6;color:#7a5500;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #ffb533;">Suboptimal</span></div>
+        <div class="range-bar"><div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 30%,#00A2B0 55%,#00A2B0 80%,#f15b5c 100%);opacity:0.3;"></div><div class="range-fill" style="width:38%;background:#ffb533;opacity:0.6;"></div><div class="range-marker" style="left:38%;border-color:#ffb533;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:9px;color:#aaa;">Low</span><span style="font-size:9px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:9px;color:#aaa;">High</span></div>
+      </div>
+      <div style="background:#f8f8f8;border-radius:8px;padding:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;"><p style="font-size:12px;font-weight:800;color:#000;">Iron</p><span style="background:#e8f8f9;color:#00A2B0;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;border:1px solid #00A2B0;">Optimal</span></div>
+        <div class="range-bar"><div class="range-fill" style="width:100%;background:linear-gradient(to right,#f15b5c 0%,#ffb533 25%,#00A2B0 45%,#00A2B0 75%,#ffb533 88%,#f15b5c 100%);opacity:0.3;"></div><div class="range-fill" style="width:60%;background:#00A2B0;opacity:0.6;"></div><div class="range-marker" style="left:60%;border-color:#00A2B0;"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="font-size:9px;color:#aaa;">Low</span><span style="font-size:9px;color:#00A2B0;font-weight:700;">Optimal</span><span style="font-size:9px;color:#aaa;">High</span></div>
+      </div>
+      <p style="color:#aaa;font-size:10px;text-align:center;font-style:italic;">Example only — your results will be customized.</p>
+    </div>
+  </div>
+  <div style="background:#111;padding:20px;"><p style="color:rgba(255,255,255,0.3);font-size:10px;margin-bottom:10px;">© 2025 Core DT Solutions LLC.</p><div style="display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Privacy</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Terms</a><a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Contact</a></div></div>
+  <div class="bottom-nav"><div class="nav-item"><div class="nav-verb">Ask</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Chat</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Find</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Live</div><div class="nav-word">WHY</div></div><div class="nav-item"><div class="nav-verb">Shop</div><div class="nav-word">WHY</div></div></div>
+  <div class="label-bar">lab-why.html · Mobile 375px · Mockup 4 · Core DT Solutions LLC</div>
+</div>
+</div>
+
+<script>
+function setView(v){
+  document.getElementById('view-desktop').style.display='none';
+  document.getElementById('view-tablet').style.display='none';
+  document.getElementById('view-mobile').style.display='none';
+  document.getElementById('view-'+v).style.display='block';
+  document.querySelectorAll('.pv-btn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+}
+</script>
+</body></html>
